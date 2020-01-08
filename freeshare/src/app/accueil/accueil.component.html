@@ -1,0 +1,17 @@
+<p>Bienvenue sur Free Share !<br/>
+    L’application du nain. Pour pouvoir profiter de l’application
+    et de ses fonctionnalités, rejoinds sa communauté.<br/>
+    C’est gratuit et c’est fun !<br/>
+    Alors ne perd pas de temps c’est par ici!
+</p>
+<div class="containform">
+    <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()">
+        <h2>Connectes toi!</h2>
+        <label for="">Pseudo</label>
+        <input type="text" name="pseudo" placeholder="Entrez votre pseudo" formControlName="identifiant">
+        <label for="">Mot de passe</label>
+        <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
+        <button [disabled]="!formAuth.valid">Se connecter</button>
+        <a href="http:/creation-utilisateur/">Nouveau?Créer un compte</a>
+    </form>
+</div>

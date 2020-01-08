@@ -1,0 +1,29 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    background-color:black;
+    color: gold;
+    height: 160px;
+    align-items: center;
+    justify-content: space-between;
+}
+button{
+    display: flex;
+    flex-direction: row;
+    background-color:gold;
+    color: gold;
+   
+    align-items: center;
+    justify-content: space-around;
+}
+.head{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    padding-bottom: 1%;
+}
+.containbutton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
