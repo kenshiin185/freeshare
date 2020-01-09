@@ -24,7 +24,7 @@ export class ConnectionutilisateurController {
         pseudo: userData.identifiant
       }
     });
-console.log(userRead);
+    console.log(userRead);
     if (userRead == null) { // test du resultat
       throw new HttpErrors.Unauthorized("Erreur user/password");
     }
