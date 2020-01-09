@@ -11,7 +11,7 @@ button{
     display: flex;
     flex-direction: row;
     background-color:gold;
-    color: gold;
+    color: black;
    
     align-items: center;
     justify-content: space-around;

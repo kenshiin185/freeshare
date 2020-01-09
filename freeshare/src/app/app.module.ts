@@ -15,6 +15,7 @@ import { PartagerComponent } from './partager/partager.component';
 import { Top10Component } from './top10/top10.component';
 import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
 import { FooterComponent } from './footer/footer.component';
+import { ConnectionComponent } from './connection/connection.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FooterComponent } from './footer/footer.component';
     PartagerComponent,
     Top10Component,
     CreationUtilisateurComponent,
-    FooterComponent
+    FooterComponent,
+    ConnectionComponent
   ],
   imports: [
     BrowserModule,

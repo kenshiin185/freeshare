@@ -1,14 +1,14 @@
 
 <div class="containformCreation">
-    <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()">
+    <form [formGroup]="formCreateAuth" (ngSubmit)="onValidateFormCreate()">
         <h2>Inscrit toi!</h2>
         <label for="">Pseudo</label>
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" formControlName="identifiant">
         <label for="">E-mail</label>
-        <input type="mail" name="mail" placeholder="Entrez une adresse mail">
+        <input type="mail" name="mail" placeholder="Entrez une adresse mail" formControlName="mail">
         <label for="">Mot de passe</label>
-        <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
-        <button [disabled]="!formAuth.valid">S'inscrire</button>
+        <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password" >
+        <button [disabled]="!formCreateAuth.valid">S'inscrire</button>
         
     </form>
 </div>

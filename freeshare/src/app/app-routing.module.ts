@@ -7,11 +7,13 @@ import { PartagerComponent } from './partager/partager.component';
 import { PhotosComponent } from './photos/photos.component';
 import { AudioComponent } from './audio/audio.component';
 import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
+import { ConnectionComponent } from './connection/connection.component';
 
 
 const routes: Routes = [
   {path: '', component: AccueilComponent},
   {path: 'accueil', component: AccueilComponent},
+  {path: 'connection', component: ConnectionComponent},
   {path: 'creation-utilisateur', component: CreationUtilisateurComponent},
   {path: 'videos', component: VideosComponent},
   {path: 'audio', component: AudioComponent},
