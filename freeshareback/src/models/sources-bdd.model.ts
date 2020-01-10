@@ -1,7 +1,7 @@
-import {Model, model, property} from '@loopback/repository';
+import {Model, model, property, Entity} from '@loopback/repository';
 
 @model({settings: {strict: false}})
-export class SourcesBdd extends Model {
+export class SourcesBdd extends Entity {
   @property({
     type: 'string',
     id: true,
