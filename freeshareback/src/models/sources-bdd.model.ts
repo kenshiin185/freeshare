@@ -19,25 +19,32 @@ export class SourcesBdd extends Entity {
     type: 'string',
     required: true,
   })
-  pictName: string;
+ title: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  Owner: string;
+  owner: string;
 
   @property({
     type: 'date',
     required: true,
   })
-  date: string;
+  date: Date;
 
   @property({
     type: 'string',
     required: true,
   })
-  type: string;
+  typemime: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  size: string;
+
 
   // Define well-known properties here
 

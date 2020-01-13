@@ -16,6 +16,9 @@ import { Top10Component } from './top10/top10.component';
 import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
 import { FooterComponent } from './footer/footer.component';
 import { ConnectionComponent } from './connection/connection.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { AlertModule } from 'ngx-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +33,16 @@ import { ConnectionComponent } from './connection/connection.component';
     Top10Component,
     CreationUtilisateurComponent,
     FooterComponent,
-    ConnectionComponent
+    ConnectionComponent,
+  
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    AlertModule.forRoot(),
     HttpClientModule
   ],
   providers: [],

@@ -8,18 +8,20 @@ import { PhotosComponent } from './photos/photos.component';
 import { AudioComponent } from './audio/audio.component';
 import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
 import { ConnectionComponent } from './connection/connection.component';
+import { UserPageComponent } from './user-page/user-page.component';
 
 
 const routes: Routes = [
-  {path: '', component: AccueilComponent},
-  {path: 'accueil', component: AccueilComponent},
-  {path: 'connection', component: ConnectionComponent},
-  {path: 'creation-utilisateur', component: CreationUtilisateurComponent},
-  {path: 'videos', component: VideosComponent},
-  {path: 'audio', component: AudioComponent},
-  {path: 'photos', component: PhotosComponent},
-  {path: 'partager', component: PartagerComponent},
-  {path: 'top10', component: Top10Component}
+  { path: '', component: AccueilComponent },
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'connection', component: ConnectionComponent },
+  { path: 'creation-utilisateur', component: CreationUtilisateurComponent },
+  { path: 'videos', component: VideosComponent },
+  { path: 'audio', component: AudioComponent },
+  { path: 'photos', component: PhotosComponent },
+  { path: 'partager', component: PartagerComponent },
+  { path: 'user-page', component: UserPageComponent },
+  { path: 'top10', component: Top10Component }
 ];
 
 @NgModule({

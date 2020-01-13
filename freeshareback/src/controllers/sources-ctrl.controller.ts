@@ -17,20 +17,26 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {SourcesBdd} from '../models';
-import {SourcesBddRepository} from '../repositories';
+import { SourcesBdd } from '../models';
+import { SourcesBddRepository } from '../repositories';
+
+
+import * as fs from "fs";
+import * as  util from "util";
+const readFile = util.promisify(fs.readFile);
+
 
 export class SourcesCtrlController {
   constructor(
     @repository(SourcesBddRepository)
-    public sourcesBddRepository : SourcesBddRepository,
-  ) {}
+    public sourcesBddRepository: SourcesBddRepository,
+  ) { }
 
   @post('/sources-bdds', {
     responses: {
       '200': {
         description: 'SourcesBdd model instance',
-        content: {'application/json': {schema: getModelSchemaRef(SourcesBdd)}},
+        content: { 'application/json': { schema: getModelSchemaRef(SourcesBdd) } },
       },
     },
   })
@@ -40,7 +46,7 @@ export class SourcesCtrlController {
         'application/json': {
           schema: getModelSchemaRef(SourcesBdd, {
             title: 'NewSourcesBdd',
-            
+
           }),
         },
       },
@@ -54,7 +60,7 @@ export class SourcesCtrlController {
     responses: {
       '200': {
         description: 'SourcesBdd model count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -72,7 +78,7 @@ export class SourcesCtrlController {
           'application/json': {
             schema: {
               type: 'array',
-              items: getModelSchemaRef(SourcesBdd, {includeRelations: true}),
+              items: getModelSchemaRef(SourcesBdd, { includeRelations: true }),
             },
           },
         },
@@ -89,7 +95,7 @@ export class SourcesCtrlController {
     responses: {
       '200': {
         description: 'SourcesBdd PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -97,7 +103,7 @@ export class SourcesCtrlController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(SourcesBdd, {partial: true}),
+          schema: getModelSchemaRef(SourcesBdd, { partial: true }),
         },
       },
     })
@@ -113,7 +119,7 @@ export class SourcesCtrlController {
         description: 'SourcesBdd model instance',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(SourcesBdd, {includeRelations: true}),
+            schema: getModelSchemaRef(SourcesBdd, { includeRelations: true }),
           },
         },
       },
@@ -138,7 +144,7 @@ export class SourcesCtrlController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(SourcesBdd, {partial: true}),
+          schema: getModelSchemaRef(SourcesBdd, { partial: true }),
         },
       },
     })
@@ -171,4 +177,15 @@ export class SourcesCtrlController {
   async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.sourcesBddRepository.deleteById(id);
   }
+
+  @get("/images/{nom}")
+  async getImage(@param.path.string('nom') nom: string) {
+    console.log(nom);
+    // recuperation de l'image
+    //this.response.setHeader("Content-Disposition",'attachment; filename="filename.jpg"');    
+    const img = await readFile(`/mnt/c/Projets/sourcesbdd/${nom}`);
+    // this.response.setHeader("Content-Type","image/jpeg");    
+    return img;
+  }
+
 }
