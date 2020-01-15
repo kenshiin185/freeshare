@@ -1,1 +1,15 @@
-<p>partager un fichier ici!</p>
+<div class="containformshare">
+    <form [formGroup]="formShare" (ngSubmit)="onValidateFormShare()">
+        <h2>Pour partager c'est içi !!</h2>
+        <label for="">Fichier</label>
+        <input type="file" name="file" formControlName="file">
+        <label for="">Titre</label>
+        <input type="text" name="titre" placeholder="Entrez votre titre" formControlName="titre">
+        <label for="">Catégorie</label>
+        <input type="text" name="categorie" placeholder="Entrez une catégorie" formControlName="categorie">
+        <label for="">Description</label>
+        <input type="text" name="description" placeholder="Décrivez votre fichier" value="">
+        <button [disabled]="!formShare.valid">Partager</button>
+
+    </form>
+</div>

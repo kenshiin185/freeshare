@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sources } from '../class/Sources';
+import { SourcesService } from '../sources.service';
 
 @Component({
   selector: 'app-audio',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AudioComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private srvSources: SourcesService) { }
+  tabSources: Sources[] = [];
   ngOnInit() {
-  }
+  
+  this.srvSources.reqDataByType("audio/mp3").subscribe((data) => {
+    this.tabSources=data;
+    console.log(data);
+  }, (error) => {
+    console.log(error);
+  });
 
+}
 }

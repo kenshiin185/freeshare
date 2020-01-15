@@ -22,4 +22,7 @@ export class CommConnectionUtilisateurService {
       headers: new HttpHeaders().set("Content-Type", "application/json")
     });
   }
+  Partager(partage: Partage): Observable<Partage>{
+    return this.http.post<Partage>("http://localhost:3000/api/partage", JSON.stringify(partage))
+  }
 }

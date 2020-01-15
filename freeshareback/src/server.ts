@@ -7,6 +7,9 @@ import { Request, Response } from "express";
 import pEvent from 'p-event';
 import { Server } from 'http';
 
+const fileUpLoad= require('express-fileupload');
+
+
 export class ExpressServer {
     private app: express.Application;
     private lbApp: FreesharebackApplication;
@@ -45,5 +48,10 @@ export class ExpressServer {
         this.server.close();
         await pEvent(this.server, 'close');
         this.server = undefined;
+    }
+    private initUpLoader(){
+        this.app.use(fileUpLoad());
+        
+
     }
 }
