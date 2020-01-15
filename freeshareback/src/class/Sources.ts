@@ -5,5 +5,6 @@ export class Sources {
     public owner?: string;
     public date?: Date;
     public typemime?: string;
+    public description?: string;
     public size?: string;
 }

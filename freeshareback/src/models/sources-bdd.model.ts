@@ -1,4 +1,6 @@
 import {Model, model, property, Entity} from '@loopback/repository';
+import { type } from 'os';
+import { constructor } from 'uuid';
 
 @model({settings: {strict: false}})
 export class SourcesBdd extends Entity {
@@ -38,6 +40,12 @@ export class SourcesBdd extends Entity {
     required: true,
   })
   typemime: string;
+
+  @property({
+    type: 'string',
+    require: true,
+  })
+  description: string;
 
   @property({
     type: 'string',

@@ -4,6 +4,7 @@ import { AuthUtilisateur } from './class/authutilisateur';
 import { RepAuth } from './class/rep';
 import { Observable } from 'rxjs';
 import { Utilisateurs } from './class/Utilisateur';
+import { Partage } from './class/partage';
 
 @Injectable({
   providedIn: 'root'
