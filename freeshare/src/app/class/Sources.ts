@@ -6,5 +6,6 @@ export class Sources {
     public date?: Date;
     public typemime?: string;
     public description?: string;
-    public size?: string;
+    public size?: number;
+    public pathFile?: string;
 }

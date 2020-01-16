@@ -17,6 +17,10 @@ export class SourcesService {
   reqDataByType(type: string): Observable<Sources[]>{
     return this.http.get<Sources[]>(`http://localhost:3000/api/sources-bdds?filter[where][typemime]=${type}`)
   }
+  reqDataByTypeLike(type: string): Observable<Sources[]>{
+    return this.http.get<Sources[]>(`http://localhost:3000/api/sources-bdds?filter[where][typemime][like]=${type}`)
+  }
+
   reqDataBytypes(type: string): Observable<Sources[]>{
     return this.http.get<Sources[]>(`http://localhost:3000/api/sources-bdds?filter[where][typemime]=${type['video/mpeg']} ||
     ${type['video/mp4']} || ${type['video/quicktime']} || ${type['video/x-ms-wmv']} || ${type['video/x-msvideo']}

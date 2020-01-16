@@ -183,7 +183,7 @@ export class SourcesCtrlController {
     console.log(nom);
     // recuperation de l'image
     //this.response.setHeader("Content-Disposition",'attachment; filename="filename.jpg"');    
-    const img = await readFile(`/mnt/c/Projets/sourcesbdd/${nom}`);
+    const img = await readFile(`download/${nom}`);
     // this.response.setHeader("Content-Type","image/jpeg");    
     return img;
   }

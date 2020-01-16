@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AlertModule } from 'ngx-bootstrap';
+import { TransFileComponent } from './trans-file/trans-file.component';
 
 
 @NgModule({
@@ -34,8 +35,10 @@ import { AlertModule } from 'ngx-bootstrap';
     CreationUtilisateurComponent,
     FooterComponent,
     ConnectionComponent,
-  
-    UserPageComponent
+
+    UserPageComponent,
+
+    TransFileComponent
   ],
   imports: [
     BrowserModule,

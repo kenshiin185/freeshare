@@ -21,7 +21,7 @@ export class PhotosComponent implements OnInit {
       console.log(error);
     });*/
 
-    this.srvSources.reqDataByType("image/jpeg").subscribe((data) => {
+    this.srvSources.reqDataByTypeLike("image").subscribe((data) => {
       this.tabSources=data;
       console.log(data);
     }, (error) => {

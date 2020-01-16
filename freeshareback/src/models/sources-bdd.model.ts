@@ -19,15 +19,15 @@ export class SourcesBdd extends Entity {
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
- title: string;
+ title?: string;
 
   @property({
     type: 'string',
-    required: true,
+    required: false,
   })
-  owner: string;
+  owner?: string;
 
   @property({
     type: 'date',
@@ -48,10 +48,10 @@ export class SourcesBdd extends Entity {
   description: string;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  size: string;
+  size: number;
 
 
   // Define well-known properties here
