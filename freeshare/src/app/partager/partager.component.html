@@ -2,14 +2,12 @@
     <form [formGroup]="formShare" (ngSubmit)="onValidateFormShare()">
         <h2>Pour partager c'est içi !!</h2>
         <label for="">Fichier</label>
-        <input type="file" (change)="onUpload($event.target.files)"/>
+        <input [disabled]="idrecu" type="file" (change)="onUpload($event.target.files)"/>
         <label for="">Titre</label>
         <input type="text" name="titre" placeholder="Entrez votre titre" formControlName="titre">
-        <label for="">Catégorie</label>
-        <input type="text" name="categorie" placeholder="Entrez une catégorie" formControlName="categorie">
         <label for="">Description</label>
        <textarea name="description" id="" cols="30" rows="10" formControlName="description"></textarea>
-        <button [disabled]="!formShare.valid">Partager</button>
+        <button [disabled]="!isValid">Partager</button>
 
     </form>
 </div>
