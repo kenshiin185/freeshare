@@ -15,11 +15,7 @@ export class PhotosComponent implements OnInit {
   tabSources: Sources[] = [];
 
   ngOnInit() {
-    /*this.srvSources.reqDataByOwner("abctoto").subscribe((data)=>{
-      console.log(data);
-    },(error)=>{
-      console.log(error);
-    });*/
+    
 
     this.srvSources.reqDataByTypeLike("image").subscribe((data) => {
       this.tabSources=data;

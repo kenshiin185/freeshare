@@ -18,7 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AlertModule } from 'ngx-bootstrap';
-import { TransFileComponent } from './trans-file/trans-file.component';
+
 
 
 @NgModule({
@@ -36,9 +36,7 @@ import { TransFileComponent } from './trans-file/trans-file.component';
     FooterComponent,
     ConnectionComponent,
 
-    UserPageComponent,
-
-    TransFileComponent
+    UserPageComponent
   ],
   imports: [
     BrowserModule,

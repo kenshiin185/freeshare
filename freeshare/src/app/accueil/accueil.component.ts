@@ -4,6 +4,10 @@ import { CommConnectionUtilisateurService } from '../comm-connection-utilisateur
 import { AuthUtilisateur } from '../class/authutilisateur';
 import { RepAuth } from '../class/rep';
 
+
+
+
+
 @Component({
   selector: 'app-accueil',
   templateUrl: './accueil.component.html',
@@ -32,7 +36,7 @@ export class AccueilComponent implements OnInit {
     )
   }
   constructor(private comm: CommConnectionUtilisateurService) { }
-
+  
 
   ngOnInit() {
   }

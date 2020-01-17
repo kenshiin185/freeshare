@@ -9,7 +9,7 @@ import { AudioComponent } from './audio/audio.component';
 import { CreationUtilisateurComponent } from './creation-utilisateur/creation-utilisateur.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
-import { TransFileComponent } from './trans-file/trans-file.component';
+
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'photos', component: PhotosComponent },
   { path: 'partager', component: PartagerComponent },
   { path: 'user-page', component: UserPageComponent },
-  { path: 'trans-file', component: TransFileComponent },
+
   { path: 'top10', component: Top10Component }
 ];
 
