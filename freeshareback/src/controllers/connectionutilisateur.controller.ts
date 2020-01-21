@@ -11,34 +11,33 @@ import { v4 } from "uuid";
 import { repository } from "@loopback/repository";
 import { UtilisateursRepository } from "../repositories";
 import { exists } from "fs";
-
+import { UserServiceBindings } from "../keys";
+import { inject } from "@loopback/core";
+import { Utilisateurs } from "../models";
+import { UserFreeshareService } from "../services";
+import { UserService, TokenService } from "@loopback/authentication";
+import { TokenNS } from "../components/authentication/types";
+import { UserProfile} from "@loopback/security";
 
 export class ConnectionutilisateurController {
-  constructor(@repository(UtilisateursRepository) private repoUtilisateur: UtilisateursRepository) { }
+  constructor(@repository(UtilisateursRepository) private repoUtilisateur: UtilisateursRepository,
+  @inject(UserServiceBindings.USER_SERVICE) private userFreeshareService: UserService<Utilisateurs,AuthUtilisateur>,
+  @inject(TokenNS.TOKEN_SERVICE)private tokenService : TokenService
+  )
+  { }
 
   @post("/login")
   public async login(@requestBody(AuthUtilisateur) userData: AuthUtilisateur): Promise<RepAuth> {
-    console.log(userData);
-    let userRead = await this.repoUtilisateur.findOne({
-      where: {
-        pseudo: userData.identifiant
-      }
-    });
-    console.log(userRead);
-    if (userRead == null) { // test du resultat
-      throw new HttpErrors.Unauthorized("Erreur user/password");
-    }
-    // test du mdp
-    if (userRead.password !== userData.password) {
-      throw new HttpErrors.Unauthorized("Erreur user/password");
-    }
 
 
-    const tokeWrk = v4();
-    return {
-      token: tokeWrk
-    };
+    const userTemp = await this.userFreeshareService.verifyCredentials(userData);
 
+    const prf : UserProfile = this.userFreeshareService.convertToUserProfile(userTemp);
+    const newToken : string = await this.tokenService.generateToken(prf);
+
+    const rep = new RepAuth(); // instance
+    rep.token = newToken;
+    return rep;
 
 
 

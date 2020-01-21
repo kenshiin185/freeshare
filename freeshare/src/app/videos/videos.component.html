@@ -1,15 +1,16 @@
 <h1>Galerie vidéos</h1>
 <div class="containvideo">
 
-    <div class="media">
-        <img src="..." class="mr-3" alt="...">
+  
+    <div *ngFor="let source of tabSources" class="media">
+        <img src="http://localhost:3000/api/images/{{source.pathFile}}"  class="mr-3" alt="...">
         <div class="media-body">
           <h5 class="mt-0">Media heading</h5>
           Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
           <button class="btn btn-warning" ng-click=telecharger()>Télécharger</button>
         </div>
       </div>
-
+    
 
 </div>
 <!--fin du containvideo-->

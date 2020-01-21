@@ -8,12 +8,13 @@ import { Sources } from '../class/Sources';
   styleUrls: ['./videos.component.css']
 })
 export class VideosComponent implements OnInit {
-  tabSources: import("/mnt/c/Projets/freeshare/src/app/class/Sources").Sources[];
+  tabSources: Sources[];
+ // tabSources: import("/mnt/c/Projets/freeshare/src/app/class/Sources").Sources[];
 
   constructor(private srvSources: SourcesService) { }
   
   ngOnInit() {
-    this.srvSources.reqDataByType("audio/mp3").subscribe((data) => {
+    this.srvSources.reqDataByType("video/mp4").subscribe((data) => {
       this.tabSources=data;
       console.log(data);
     }, (error) => {

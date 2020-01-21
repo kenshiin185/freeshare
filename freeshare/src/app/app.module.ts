@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { AlertModule } from 'ngx-bootstrap';
+import { SecurityInterceptorService } from './services/security-interceptor.service';
 
 
 
@@ -46,7 +47,12 @@ import { AlertModule } from 'ngx-bootstrap';
     AlertModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: SecurityInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

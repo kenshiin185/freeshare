@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CommConnectionUtilisateurService } from '../comm-connection-utilisateur.service';
 import { AuthUtilisateur } from '../class/authutilisateur';
 import { RepAuth } from '../class/rep';
+import { FrmCurrentServiceService } from '../frm-current-service.service';
 
 @Component({
   selector: 'app-connection',
@@ -16,7 +17,7 @@ export class ConnectionComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService) { }
+  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService) { }
 
   ngOnInit() {
   }
@@ -29,9 +30,11 @@ export class ConnectionComponent implements OnInit {
     this.comm.login(authWrk).subscribe(
       (data: RepAuth) => {
         console.log(data);
+        this.currentUser.token = data.token;
       },
       (err) => {
         console.log(err);
+        this.currentUser.token = "";
       }
     )
   }

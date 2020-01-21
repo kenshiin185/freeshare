@@ -17,20 +17,28 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {Utilisateurs} from '../models';
-import {UtilisateursRepository} from '../repositories';
+import { Utilisateurs } from '../models';
+import { UtilisateursRepository } from '../repositories';
+import { UserServiceBindings } from '../keys';
+import { inject } from '@loopback/core';
+import { UserFreeshareService } from '../services';
+import { AuthUtilisateur } from '../class/authutilisateur';
+import { UserService } from '@loopback/authentication';
+import { PasswordNS } from '../components/password';
 
 export class UtilisateurController {
   constructor(
     @repository(UtilisateursRepository)
-    public utilisateursRepository : UtilisateursRepository,
-  ) {}
+    public utilisateursRepository: UtilisateursRepository,
+    @inject(UserServiceBindings.USER_SERVICE) private UserFreeshareService: UserService<Utilisateurs, AuthUtilisateur>,
+    @inject(PasswordNS.PASSWORD_HASHER) private hasher: PasswordNS.IPasswordHasher
+  ) { }
 
   @post('/utilisateurs', {
     responses: {
       '200': {
         description: 'Utilisateurs model instance',
-        content: {'application/json': {schema: getModelSchemaRef(Utilisateurs)}},
+        content: { 'application/json': { schema: getModelSchemaRef(Utilisateurs) } },
       },
     },
   })
@@ -40,21 +48,24 @@ export class UtilisateurController {
         'application/json': {
           schema: getModelSchemaRef(Utilisateurs, {
             title: 'NewUtilisateurs',
-            
+
           }),
         },
       },
     })
     utilisateurs: Utilisateurs,
   ): Promise<Utilisateurs> {
-    return this.utilisateursRepository.create(utilisateurs);
+    utilisateurs.password = await this.hasher.hashPassword(utilisateurs.password); // hash
+    let retNewUser = await this.utilisateursRepository.create(utilisateurs); // save
+    retNewUser.password = ""; // delete password
+    return retNewUser;
   }
 
   @get('/utilisateurs/count', {
     responses: {
       '200': {
         description: 'Utilisateurs model count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -72,7 +83,7 @@ export class UtilisateurController {
           'application/json': {
             schema: {
               type: 'array',
-              items: getModelSchemaRef(Utilisateurs, {includeRelations: true}),
+              items: getModelSchemaRef(Utilisateurs, { includeRelations: true }),
             },
           },
         },
@@ -89,7 +100,7 @@ export class UtilisateurController {
     responses: {
       '200': {
         description: 'Utilisateurs PATCH success count',
-        content: {'application/json': {schema: CountSchema}},
+        content: { 'application/json': { schema: CountSchema } },
       },
     },
   })
@@ -97,7 +108,7 @@ export class UtilisateurController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Utilisateurs, {partial: true}),
+          schema: getModelSchemaRef(Utilisateurs, { partial: true }),
         },
       },
     })
@@ -113,7 +124,7 @@ export class UtilisateurController {
         description: 'Utilisateurs model instance',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(Utilisateurs, {includeRelations: true}),
+            schema: getModelSchemaRef(Utilisateurs, { includeRelations: true }),
           },
         },
       },
@@ -138,7 +149,7 @@ export class UtilisateurController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Utilisateurs, {partial: true}),
+          schema: getModelSchemaRef(Utilisateurs, { partial: true }),
         },
       },
     })

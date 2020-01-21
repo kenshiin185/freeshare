@@ -178,7 +178,7 @@ export class SourcesCtrlController {
     await this.sourcesBddRepository.deleteById(id);
   }
 
-  @get("/images/{nom}")
+ /* @get("/images/{nom}")
   async getImage(@param.path.string('nom') nom: string) {
     console.log(nom);
     // recuperation de l'image
@@ -186,6 +186,13 @@ export class SourcesCtrlController {
     const img = await readFile(`download/${nom}`);
     // this.response.setHeader("Content-Type","image/jpeg");    
     return img;
-  }
+  }*/
+@get("/images/{_id}")
+async getImage(@param.path.string('_id') _id: string) {
+  console.log(_id);
 
+  const img = await readFile(`download/${_id}`);
+
+  return img;
+}
 }
