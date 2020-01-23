@@ -65,14 +65,14 @@ export class JwtService implements TokenService {
 
       userProfile = this.getInfoToken(decryptedToken);
 
-      const addQury: AddressInfo = this.request.connection.address() as AddressInfo;
-      console.log(addQury)
+     // const addQury: AddressInfo = this.request.connection.address() as AddressInfo;
+     // console.log(addQury)
 
-      if (addQury.address !== decryptedToken.add.address) {
-        throw new HttpErrors.Unauthorized(
-          `erreur`,
-        );
-      }
+     // if (addQury.address !== decryptedToken.add.address) {
+     //   throw new HttpErrors.Unauthorized(
+       //   `erreur`,
+       // );
+     // }
 
     } catch (error) {
       throw new HttpErrors.Unauthorized(

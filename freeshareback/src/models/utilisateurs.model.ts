@@ -11,6 +11,12 @@ export class Utilisateurs extends Entity {
 
   @property({
     type: 'string',
+    required : false,
+  })
+  profile?: string;
+
+  @property({
+    type: 'string',
     required: true,
   })
   pseudo: string;

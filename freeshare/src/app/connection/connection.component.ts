@@ -4,6 +4,7 @@ import { CommConnectionUtilisateurService } from '../comm-connection-utilisateur
 import { AuthUtilisateur } from '../class/authutilisateur';
 import { RepAuth } from '../class/rep';
 import { FrmCurrentServiceService } from '../frm-current-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-connection',
@@ -17,7 +18,7 @@ export class ConnectionComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService) { }
+  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -31,6 +32,7 @@ export class ConnectionComponent implements OnInit {
       (data: RepAuth) => {
         console.log(data);
         this.currentUser.token = data.token;
+        this.router.navigate(["/accueil"]);
       },
       (err) => {
         console.log(err);

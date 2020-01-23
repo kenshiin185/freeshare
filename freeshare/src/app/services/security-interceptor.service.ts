@@ -14,7 +14,7 @@ export class SecurityInterceptorService implements HttpInterceptor {
     if (this.currentUser.token != "") {
 
       let headers = req.headers;
-      headers = headers.append('authtoken', `Bearer ${this.currentUser.token}`);
+      headers = headers.append('authorization', `Bearer ${this.currentUser.token}`);
       const authreq = req.clone({ headers: headers });
       return next.handle(authreq);
 

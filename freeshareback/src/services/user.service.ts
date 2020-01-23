@@ -48,11 +48,15 @@ export class UserFreeshareService implements UserService<Utilisateurs, AuthUtili
    */
 
   convertToUserProfile(user: Utilisateurs): UserProfile {
+    if (user.profile){
+      user.profile= "user";
+    }
     const usrProfil: UserProfile = {
       [securityId]: `${user._id}`,
       name: user.pseudo,
       email: user.email,
-      id: user._id
+      id: user._id,
+      profile: user.profile
     }
     return usrProfil;
 

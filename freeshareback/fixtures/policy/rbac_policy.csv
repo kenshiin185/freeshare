@@ -1,0 +1,3 @@
+p, admin, PocInfoController.testJwtAuth, execute
+p, toto, PocInfoController.testJwtAuth, execute
+p, admin , UserController.createUserCredential , execute
