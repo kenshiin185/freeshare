@@ -18,7 +18,8 @@ export class ConnectionComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService, private router: Router) { }
+  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService,
+     private router: Router) { }
 
   ngOnInit() {
   }

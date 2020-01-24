@@ -20,20 +20,22 @@ export class PartagerComponent implements OnInit {
 
     }
   );
-  idrecu: string = ""; 
+  idrecu: string = "";
+  owner: string;
 
-  constructor(private http: HttpClient, private comm: SourcesService, private route:Router) { }
+  constructor(private http: HttpClient, private comm: SourcesService, private route: Router) { }
 
   ngOnInit() {
   }
   onValidateFormShare() {
     console.log("validate formulaire");
     console.log(this.formShare.value);
-    
+
     const shareWrk: Sources = new Sources();
     shareWrk.title = this.formShare.value.titre;
     shareWrk.description = this.formShare.value.description;
     shareWrk._id = this.idrecu;
+
 
     this.comm.reqUpdateSrc(shareWrk).subscribe(
       () => {

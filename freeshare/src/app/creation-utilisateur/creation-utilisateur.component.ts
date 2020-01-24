@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 import { Utilisateurs } from '../class/Utilisateur';
 import { CommConnectionUtilisateurService } from '../comm-connection-utilisateur.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creation-utilisateur',
@@ -18,7 +19,7 @@ export class CreationUtilisateurComponent implements OnInit {
     }
   );
 
-  constructor(private comm: CommConnectionUtilisateurService) { }
+  constructor(private comm: CommConnectionUtilisateurService,private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,7 @@ export class CreationUtilisateurComponent implements OnInit {
     this.comm.CreationUtilisateur(CreateWrk).subscribe(
       (data: Utilisateurs) => {
         console.log(data);
+        this.router.navigate(["/connection"]);
       },
       (err) => {
         console.log(err);

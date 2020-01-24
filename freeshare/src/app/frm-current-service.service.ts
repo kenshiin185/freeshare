@@ -23,14 +23,23 @@ export class FrmCurrentServiceService {
 
 
   public set token(v: string) {
-    if (!this._token) {
+    if (v == "") {
+      window.sessionStorage.removeItem("savetoken");
+    }else{
       window.sessionStorage.setItem("savetoken", v);
-      this._token = v;
-
-
-
+    }
+    this._token=v;
+  }
+  public get isLoged() {
+    if (this._token != "") {
+      return true;
+    } else {
+      return false;
     }
   }
+
+
+
 
   constructor() { }
 }

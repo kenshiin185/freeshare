@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FrmCurrentServiceService } from '../frm-current-service.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public currentService: FrmCurrentServiceService, public router: Router) { }
 
   ngOnInit() {
   }
+  public get messgbtn(): string {
+    if (this.currentService.isLoged) {
+      return "Deconnection";
+    }
+    return "Connection";
+  }
+  public navig() {
+    if (!this.currentService.isLoged) {
 
-}
+      this.router.navigate(['/connection']);
+    } else {
+      this.currentService.token = "";
+    }
+
+  }
+
+}// fin de class

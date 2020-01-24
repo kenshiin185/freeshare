@@ -7,9 +7,13 @@ import { Request, Response } from "express";
 import pEvent from 'p-event';
 import { Server } from 'http';
 import { v4 } from "uuid";
-import { repository } from '@loopback/repository';
+import { repository, RepositoryMetadata } from '@loopback/repository';
 import { SourcesBddRepository } from './repositories';
 import { SourcesBdd } from './models';
+import passport from 'passport';
+import passport_jwt from "passport-jwt";
+import { ExtractJwt } from "passport-jwt";
+import fs from 'fs';
 
 const fileUpLoad = require('express-fileupload');
 const cors = require('cors');
@@ -24,6 +28,7 @@ export class ExpressServer {
         this.app.use(cors());
         this.lbApp = new FreesharebackApplication(options);
         this.app.use('/api', this.lbApp.requestHandler);
+        this.initElementPassport();
         // Custom Express routes
         this.app.get('/', function (_req: Request, res: Response) {
             res.sendFile(path.resolve('public/index.html'));
@@ -57,12 +62,12 @@ export class ExpressServer {
         this.server = undefined;
     }
 
-    
+
     private initUpLoader() {
         this.app.use(fileUpLoad());
 
-        this.app.post("/uploadF", (req: any, res: any) => {
-            
+        this.app.post("/uploadF", passport.authenticate('jwt', { session: false }), (req: any, res: any) => {
+
             console.log("---upload---");
             console.log(req.files);
 
@@ -81,26 +86,29 @@ export class ExpressServer {
 
                 // mv ok
                 // recherche du repo
-                this.lbApp.getRepository(SourcesBddRepository).then((repo:SourcesBddRepository)=>{
+                this.lbApp.getRepository(SourcesBddRepository).then((repo: SourcesBddRepository) => {
                     // repo trouvé
                     // création de l'instance sourcebdd
-                    const instanceSources: SourcesBdd= new SourcesBdd();
+                    const instanceSources: SourcesBdd = new SourcesBdd();
                     instanceSources.pathFile = fileNamePhysique;
                     instanceSources.fileName = sampleFile.name;
                     instanceSources.owner = "";
+                    if (req.user) {
+                        instanceSources.owner = req.user.id;
+                    }
                     instanceSources.date = new Date();
                     instanceSources.size = sampleFile.size;
                     instanceSources.title = "";
                     instanceSources.description = "";
                     instanceSources.typemime = sampleFile.mimetype;
-                    repo.create(instanceSources).then((avecId: SourcesBdd)=>{
+                    repo.create(instanceSources).then((avecId: SourcesBdd) => {
                         return res.send(
-                        {
-                            _id : avecId._id
-                        }
+                            {
+                                _id: avecId._id
+                            }
                         );
-                    }).catch((errCreate)=>{
-                        return res.status(500).send("err insert "+ JSON.stringify(errCreate));
+                    }).catch((errCreate) => {
+                        return res.status(500).send("err insert " + JSON.stringify(errCreate));
                     });
 
 
@@ -114,6 +122,51 @@ export class ExpressServer {
 
         });
 
+         // this.app.get("/download/:idFile",
+         // passport.authenticate('jwt', { session: false }),
+         this.app.get("/download/:idFile",
+            (req, res) => {
+                const idFile = req.params.idFile;
+                this.lbApp.getRepository(SourcesBddRepository).then((repoMeta: SourcesBddRepository) => {
+                    repoMeta.findById(idFile).then((readFile) => {
+                        const file = path.resolve(__dirname, "..", `download/${readFile.pathFile}`);
+
+                        const mimetype = readFile.typemime;
+
+                        if (req.query.attachment) {
+                            res.setHeader('Content-disposition', `attachment; filename=${readFile.fileName}`);
+                        }
+                        res.setHeader('Content-type', mimetype);
+
+                        let filestream = fs.createReadStream(file);
+
+                        filestream.pipe(res);
+                    }).catch((errRead) => {
+                        res.sendStatus(404);
+                    })
+                }).catch((err) => {
+                    res.sendStatus(500);
+                })
+            }
+        );
+        
+
     }
-    
+
+    private initElementPassport(): void {
+        this.app.use(passport.initialize()); // init de passport
+        // mise en place de la  strategie passport jwt
+        passport.use(new passport_jwt.Strategy({
+            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+            secretOrKey: "@@??MotDePassePour_-Generation**token$$$"
+        },
+            function (jwtPayload, cb) {
+                console.log(jwtPayload);
+
+                return cb(null, { id: jwtPayload.id });
+            }
+        )
+        )
+    }
+
 }

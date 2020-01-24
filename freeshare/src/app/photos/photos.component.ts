@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
+//import { readFile } from 'fs';
 
 @Component({
   selector: 'app-photos',
@@ -9,6 +10,8 @@ import { Sources } from '../class/Sources';
   styleUrls: ['./photos.component.css']
 })
 export class PhotosComponent implements OnInit {
+  http: any;
+  idrecu: any;
 
   constructor(private srvSources: SourcesService) { }
   
@@ -25,5 +28,6 @@ export class PhotosComponent implements OnInit {
     });
 
   }
+  
 
 }
