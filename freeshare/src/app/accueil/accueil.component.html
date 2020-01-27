@@ -1,26 +1,18 @@
-<h1>Top 3 du mois</h1>
-<div class="containtop3">
-    <div class="card" style="width: 14rem;">
-        <img src="http://localhost:3000/api/images/karate-sun.jpg" class="card-img-top" alt="...">
-        <div class="card-body bg-warning">
-          <p class="card-text">Numéro 1 du mois</p>
-        </div>
-      </div>
-      <div class="card" style="width: 14rem;">
-        <img src="http://localhost:3000/api/images/spitfire.jpg" class="card-img-top" alt="...">
-        <div class="card-body bg-warning">
-          <p class="card-text">Numéro 2 du mois</p>
-        </div>
-      </div>
-      <div class="card" style="width: 14rem;">
-        <img src="http://localhost:3000/api/images/solar-system.jpg" class="card-img-top" alt="...">
-        <div class="card-body bg-warning">
-          <p class="card-text ">Numéro 3 du mois</p>
-        </div>
-      </div>
+<h1>Les derniers partages de la communauté</h1>
+<div class="containLastPost">
+
+  <div *ngFor="let source of tabSources" class="card col-8 col-sm-3 col-md-4 col-lg-4" style="width: 8rem;height: 18rem;">
+    <img src="http://localhost:3000/api/images/{{source.pathFile}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{source.title}}</h5>
+      <p class="card-text">{{source.description}}</p>
+      <a href="http://localhost:3000/download/{{source._id}}?attachment=true">Télécharger</a>
+    </div>
+  </div>
+
+
 </div>
 <!--fin du containtop3-->
-<p>Bienvenue sur Free Share !<br/>
-    L’application du nain. Pour pouvoir profiter de l’application et de ses fonctionnalités,rejoins sa communauté<br/>
-    en t'inscrivant dans l'onglet connection.
-    
+<p>Bienvenue sur Free Share !<br />
+  L’application du nain. Pour pouvoir profiter de l’application et de ses fonctionnalités,rejoins sa communauté<br />
+  en t'inscrivant dans l'onglet connection.

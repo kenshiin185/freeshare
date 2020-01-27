@@ -1,5 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
-
+/**
+ * modele de l'utilisateur
+ */
 @model({settings: {strict: false}})
 export class Utilisateurs extends Entity {
   @property({

@@ -15,7 +15,7 @@ import { Sources } from '../class/Sources';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
-  formAuth: FormGroup = new FormGroup(
+  /*formAuth: FormGroup = new FormGroup(
     {
       identifiant: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required])
@@ -35,19 +35,21 @@ export class AccueilComponent implements OnInit {
         console.log(err);
       }
     )
-  }
+  }*/
   constructor(private comm: CommConnectionUtilisateurService,
     private srvSources: SourcesService) { }
 
   tabSources: Sources[] = [];
 
   ngOnInit() {
-    this.srvSources.reqDataByTypeLike("image").subscribe((data) => {
+    this.srvSources.reqDataByLastPost("image").subscribe((data) => {
       this.tabSources = data;
       console.log(data);
     }, (error) => {
       console.log(error);
     });
+
+
   }
 
 }

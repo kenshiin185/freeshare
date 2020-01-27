@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Sources } from './class/Sources';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Title } from '@angular/platform-browser';
 
 
 @Injectable({
@@ -19,6 +20,9 @@ export class SourcesService {
   }
   reqDataByTypeLike(type: string): Observable<Sources[]> {
     return this.http.get<Sources[]>(`http://localhost:3000/api/sources-bdds?filter[where][typemime][like]=${type}`)
+  }
+  reqDataByLastPost(type: string): Observable<Sources[]> {
+    return this.http.get<Sources[]>(`http://localhost:3000/api/sources-bdds?filter[where][typemime][like]=image&filter[order]=date&filter[limit]=3`)
   }
 
   reqDataBytypes(type: string): Observable<Sources[]> {
