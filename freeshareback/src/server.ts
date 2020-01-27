@@ -17,6 +17,7 @@ import fs from 'fs';
 
 const fileUpLoad = require('express-fileupload');
 const cors = require('cors');
+const im = require('imagemagick');
 
 export class ExpressServer {
     private app: express.Application;
@@ -68,6 +69,7 @@ export class ExpressServer {
 
         this.app.post("/uploadF", passport.authenticate('jwt', { session: false }), (req: any, res: any) => {
 
+
             console.log("---upload---");
             console.log(req.files);
 
@@ -102,11 +104,29 @@ export class ExpressServer {
                     instanceSources.description = "";
                     instanceSources.typemime = sampleFile.mimetype;
                     repo.create(instanceSources).then((avecId: SourcesBdd) => {
-                        return res.send(
-                            {
-                                _id: avecId._id
-                            }
-                        );
+
+                        if (sampleFile.mimetype.startsWith("image/")) {
+
+                            im.convert([`download/${fileNamePhysique}`, '-resize', '150x150', `vignette/${fileNamePhysique}`],
+                                function (err: any, stdoutOut: any) {
+                                    if (err) {
+                                        return res.status(500).send("err insert " + JSON.stringify(err));
+                                    };
+                                    console.log('fileNameOut:', stdoutOut);
+                                    return res.send(
+                                        {
+                                            _id: avecId._id
+                                        }
+                                    );
+                                });
+                        } else {
+                            return res.send(
+                                {
+                                    _id: avecId._id
+                                }
+                            );
+                        }
+
                     }).catch((errCreate) => {
                         return res.status(500).send("err insert " + JSON.stringify(errCreate));
                     });
@@ -116,15 +136,13 @@ export class ExpressServer {
 
 
 
-                // res.send('File uploaded!');
-                // res.sendStatus(200);
+
             });
 
         });
 
-         // this.app.get("/download/:idFile",
-         // passport.authenticate('jwt', { session: false }),
-         this.app.get("/download/:idFile",
+
+        this.app.get("/download/:idFile",
             (req, res) => {
                 const idFile = req.params.idFile;
                 this.lbApp.getRepository(SourcesBddRepository).then((repoMeta: SourcesBddRepository) => {
@@ -149,7 +167,7 @@ export class ExpressServer {
                 })
             }
         );
-        
+
 
     }
 

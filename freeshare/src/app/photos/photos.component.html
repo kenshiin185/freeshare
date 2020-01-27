@@ -1,7 +1,7 @@
 <h1>Galerie photos</h1>
 <div class="containimg">
 
-    <div *ngFor="let source of tabSources" class="card col-12 col-sm-6 col-md-4 col-lg-3" style="width: 10rem;">
+    <div *ngFor="let source of tabSources" class="card col-sm-4 col-md-4 col-lg-1" >
         <img src="http://localhost:3000/api/images/{{source.pathFile}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{source.title}}</h5>
