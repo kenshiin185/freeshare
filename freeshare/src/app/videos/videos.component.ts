@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
-
+import {environment } from 'src/environments/environment';
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',
@@ -21,5 +21,11 @@ export class VideosComponent implements OnInit {
       console.log(error);
     });
   }
+  buildUrlImg(buildI: string): string {
+    return `${environment.retBaseUrl}/api/images/${buildI}`;
+  }
 
+  buildUrlHref(buildH: string): string {
+    return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
+  }
 }

@@ -7,7 +7,7 @@
     <div class="media-body">
       <h5 class="mt-0">{{source.title}}</h5>
       {{source.description}}
-      <a href="http://localhost:3000/download/{{source._id}}?attachment=true">Télécharger</a>
+      <a href="{{buildUrlHref(source._id)}}">Télécharger</a>
     </div>
   </div>
 

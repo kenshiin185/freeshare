@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
 import { Route, Router } from '@angular/router';
-
+import { environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-partager',
@@ -53,7 +53,7 @@ export class PartagerComponent implements OnInit {
     for (const fl of files) {
       formData.append('file', fl);
     }
-    const url: string = "http://localhost:3000/uploadF";
+    const url: string = `${environment.retBaseUrl}/uploadF`;
     this.http.post<any>(url, formData).subscribe((rep) => {
       console.log(rep);
       this.idrecu = rep._id;

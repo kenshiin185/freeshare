@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthUtilisateur } from './class/authutilisateur';
 import { RepAuth } from './class/rep';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { Utilisateurs } from './class/Utilisateur';
 import { Partage } from './class/partage';
-
+import { environment} from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,16 +14,16 @@ export class CommConnectionUtilisateurService {
   constructor(private http: HttpClient) { }
 
   login(authUtilisateur: AuthUtilisateur): Observable<RepAuth> {
-    return this.http.post<RepAuth>("http://localhost:3000/api/login", JSON.stringify(authUtilisateur), {
+    return this.http.post<RepAuth>(`${environment.retBaseUrl}/api/login`, JSON.stringify(authUtilisateur), {
       headers: new HttpHeaders().set("Content-Type", "application/json")
     });
   }
   CreationUtilisateur(utilisateur: Utilisateurs): Observable<Utilisateurs> {
-    return this.http.post<Utilisateurs>("http://localhost:3000/api/utilisateurs", JSON.stringify(utilisateur), {
+    return this.http.post<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs`, JSON.stringify(utilisateur), {
       headers: new HttpHeaders().set("Content-Type", "application/json")
     });
   }
   Partager(partage: Partage): Observable<Partage>{
-    return this.http.post<Partage>("http://localhost:3000/api/partage", JSON.stringify(partage))
+    return this.http.post<Partage>(`${environment.retBaseUrl}/api/partage`, JSON.stringify(partage))
   }
 }

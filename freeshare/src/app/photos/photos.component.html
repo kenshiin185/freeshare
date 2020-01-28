@@ -1,14 +1,14 @@
 <h1>Galerie photos</h1>
 <div class="containimg">
 
-    <div *ngFor="let source of tabSources" class="card col-sm-4 col-md-4 col-lg-1" >
-        <img src="http://localhost:3000/api/images/{{source.pathFile}}" class="card-img-top" alt="...">
+    <div *ngFor="let source of tabSources" class="card col-6 col-sm-5 col-md-3  col-xl-1" >
+        <img src="{{buildUrlImg(source.pathFile)}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{source.title}}</h5>
             <p class="card-text">{{source.description}}</p>
                 
             
-            <a href="http://localhost:3000/download/{{source._id}}?attachment=true">Télécharger</a>
+            <a href="{{buildUrlHref(source._id)}}">Télécharger</a>
         </div>
     </div>
 

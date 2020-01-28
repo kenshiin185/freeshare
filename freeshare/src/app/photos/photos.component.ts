@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
-//import { readFile } from 'fs';
+import { environment} from 'src/environments/environment';
 
 @Component({
   selector: 'app-photos',
@@ -28,6 +28,12 @@ export class PhotosComponent implements OnInit {
     });
 
   }
-  
+  buildUrlImg(buildI: string): string {
+    return `${environment.retBaseUrl}/api/images/${buildI}`;
+  }
+
+  buildUrlHref(buildH: string): string {
+    return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
+  }
 
 }

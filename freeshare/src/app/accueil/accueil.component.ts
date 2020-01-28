@@ -5,7 +5,8 @@ import { AuthUtilisateur } from '../class/authutilisateur';
 import { RepAuth } from '../class/rep';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
-
+import { environment } from 'src/environments/environment';
+import { from } from 'rxjs';
 
 
 
@@ -15,27 +16,7 @@ import { Sources } from '../class/Sources';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
-  /*formAuth: FormGroup = new FormGroup(
-    {
-      identifiant: new FormControl("", [Validators.required]),
-      password: new FormControl("", [Validators.required])
-    }
-  );
-  onValidateForm() {
-    console.log("validate formulaire");
-    console.log(this.formAuth.value);
-    let authWrk: AuthUtilisateur = new AuthUtilisateur();
-    authWrk.identifiant = this.formAuth.value.identifiant;
-    authWrk.password = this.formAuth.value.password;
-    this.comm.login(authWrk).subscribe(
-      (data: RepAuth) => {
-        console.log(data);
-      },
-      (err) => {
-        console.log(err);
-      }
-    )
-  }*/
+
   constructor(private comm: CommConnectionUtilisateurService,
     private srvSources: SourcesService) { }
 
@@ -50,6 +31,14 @@ export class AccueilComponent implements OnInit {
     });
 
 
+  }
+
+  buildUrlImg(buildI: string): string {
+    return `${environment.retBaseUrl}/api/images/${buildI}`;
+  }
+
+  buildUrlHref(buildH: string): string {
+    return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
   }
 
 }

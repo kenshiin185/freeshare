@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sources } from '../class/Sources';
 import { SourcesService } from '../sources.service';
-
+import { environment} from 'src/environments/environment';
 @Component({
   selector: 'app-audio',
   templateUrl: './audio.component.html',
@@ -20,5 +20,12 @@ export class AudioComponent implements OnInit {
     console.log(error);
   });
 
+}
+buildUrlImg(buildI: string): string {
+  return `${environment.retBaseUrl}/api/images/${buildI}`;
+}
+
+buildUrlHref(buildH: string): string {
+  return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
 }
 }
