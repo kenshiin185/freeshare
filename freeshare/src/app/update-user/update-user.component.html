@@ -1,0 +1,12 @@
+<p>update-user works!</p>
+<div class="containformModif">
+    <form [formGroup]="formModifUser" (ngSubmit)="onValidateFormModif()">
+      <label for="">Pseudo</label><br>
+      <input type="text" name="pseudo"  formControlName="identifiant"><br>
+      <label for="">E-mail</label><br>
+    <input type="mail" name="mail"  formControlName="mail"><br>
+      <label for="">Mot de passe</label><br>
+      <input type="password" name="password"  formControlName="password"><br>
+      <button [disabled]="!formModifUser.valid">Modifier</button>
+    </form>
+  </div>

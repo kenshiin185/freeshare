@@ -8,6 +8,8 @@ import {environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SourcesService {
+  
+  
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +24,9 @@ export class SourcesService {
   }
   reqDataByLastPost(type: string): Observable<Sources[]> {
     return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][typemime][like]=image&filter[order]=date%20DESC&filter[limit]=3`)
+  }
+  reqDataByPseudo(type:string): Observable<Sources[]>{
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][pseudo]=${type}`)
   }
 
   reqDataBytypes(type: string): Observable<Sources[]> {

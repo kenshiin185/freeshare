@@ -10,6 +10,9 @@ import { environment} from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CommConnectionUtilisateurService {
+  UpdtUtilisateur(UpdtWrk: Utilisateurs) {
+    throw new Error("Method not implemented.");
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +25,8 @@ export class CommConnectionUtilisateurService {
     return this.http.post<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs`, JSON.stringify(utilisateur), {
       headers: new HttpHeaders().set("Content-Type", "application/json")
     });
+  
+
   }
   Partager(partage: Partage): Observable<Partage>{
     return this.http.post<Partage>(`${environment.retBaseUrl}/api/partage`, JSON.stringify(partage))

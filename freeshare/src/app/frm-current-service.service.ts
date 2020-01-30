@@ -25,10 +25,36 @@ export class FrmCurrentServiceService {
   public set token(v: string) {
     if (v == "") {
       window.sessionStorage.removeItem("savetoken");
-    }else{
+    } else {
       window.sessionStorage.setItem("savetoken", v);
     }
-    this._token=v;
+    this._token = v;
+  }
+
+
+  private _id: string = "";
+
+  public get id(): string {
+
+    if (!this._id) {
+      if (window.sessionStorage.getItem("saveid")) {
+        this._id = window.sessionStorage.getItem("saveid");
+        return this._id;
+      }
+
+    }
+    return this._id;
+  }
+
+
+
+  public set id(i: string) {
+    if (i == "") {
+      window.sessionStorage.removeItem("saveid");
+    } else {
+      window.sessionStorage.setItem("saveid", i);
+    }
+    this._token = i;
   }
   public get isLoged() {
     if (this._token != "") {
@@ -39,7 +65,7 @@ export class FrmCurrentServiceService {
   }
 
 
-
-
   constructor() { }
+
+
 }

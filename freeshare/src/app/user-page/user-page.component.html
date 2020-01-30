@@ -1,33 +1,56 @@
-
 <div class="wrapper">
-  
-<div class="navleft">
-<img src="" alt="">
-<ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Modifier mon profile</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
-  </ul>
-  
-</div>
 
-<!--fin du navleft-->
+  <div class="navleft">
+    <button type="button" class="btn btn-warning" routerLink="/update">Modifier profile</button>
+    <!--<button type="button" class="btn btn-warning" (click)="openModal(template)">Modifier profile</button>
+    <ng-template #template>
+      <div class="modal-header">
+        <h5 class="modal-title pull-left">Modifications</h5>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+        <div class="containformModif">
+          <form [formGroup]="formModifUser" (ngSubmit)="onValidateFormModif()">
+            <label for="">Pseudo</label><br>
+            <input type="text" name="pseudo"  formControlName="identifiant"><br>
+            <label for="">E-mail</label><br>
+          <input type="mail" name="mail" value="" formControlName="mail"><br>
+            <label for="">Mot de passe</label><br>
+            <input type="password" name="password" value="" formControlName="password"><br>
+            <button [disabled]="!formModifUser.valid">Modifier</button>
+          </form>
+        </div>
+        
+      </div>
+    </ng-template>-->
 
-<div class="article">
+    <!--<ng-template #templateNested>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Second modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is nested modal.<br>
+    <button *ngIf="modalRef" type="button" class="btn btn-danger" (click)="closeFirstModal()">Close first modal</button>
+  </div>
+</ng-template>-->
+    <!--fin modal-->
+
+  </div>
+
+  <!--fin du navleft-->
+
+  <div class="article">
     <h4>Bienvenue sur ton profile !</h4>
-   
 
-</div>
-<!--fin de article-->
+
+  </div>
+  <!--fin de article-->
 
 </div>
 <!--fin du wrapper-->

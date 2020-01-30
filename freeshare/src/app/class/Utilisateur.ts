@@ -1,6 +1,8 @@
 export class Utilisateurs {
-    _id?: number;
+    _id?: string;
     pseudo?: string;
     mail?: string;
     password?: string;
+  
+  
 }

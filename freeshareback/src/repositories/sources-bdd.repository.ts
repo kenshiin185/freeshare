@@ -13,4 +13,28 @@ export class SourcesBddRepository extends DefaultCrudRepository<
   ) {
     super(SourcesBdd, dataSource);
   }
+/**
+   *
+   * @param toSearch
+   */
+  public async fullTextSearch(toSearch: string): Promise<any[]> {
+    const tabRet: string[] = [];
+    return new Promise<any[]>((resolve, reject) => {
+      this.dataSource.connector!.execute!(this.entityClass.name, 'find', { $text: { $search: toSearch } },
+        (err: any, data: any) => {
+          if (err) reject(err);
+          else {
+            data.toArray((errT: any, documents: any) => {
+              if (errT) {
+                reject(errT);
+                return;
+              }
+              resolve(documents);
+            });
+          }
+        });
+    });
+
+  }
+
 }

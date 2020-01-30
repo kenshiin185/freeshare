@@ -17,10 +17,12 @@ import { CreationUtilisateurComponent } from './creation-utilisateur/creation-ut
 import { FooterComponent } from './footer/footer.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
-import { AlertModule } from 'ngx-bootstrap';
+import { AlertModule} from 'ngx-bootstrap';
 import { SecurityInterceptorService } from './services/security-interceptor.service';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { SecurityInterceptorService } from './services/security-interceptor.serv
     FooterComponent,
     ConnectionComponent,
 
-    UserPageComponent
+    UserPageComponent,
+
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,10 @@ import { SecurityInterceptorService } from './services/security-interceptor.serv
     FormsModule,
     ReactiveFormsModule,
     AlertModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [
     {

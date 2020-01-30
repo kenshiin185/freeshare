@@ -25,3 +25,9 @@ height: 650px;
     flex-direction: column;
    
 }
+.containformModif{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

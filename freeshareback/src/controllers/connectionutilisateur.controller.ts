@@ -37,6 +37,7 @@ export class ConnectionutilisateurController {
 
     const rep = new RepAuth(); // instance
     rep.token = newToken;
+    rep.id = userTemp._id;
     return rep;
 
 

@@ -8,7 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
+
 export class HeaderComponent implements OnInit {
+  navbarOpen = false;
+
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+  }
 
   constructor(public currentService: FrmCurrentServiceService, public router: Router) { }
 

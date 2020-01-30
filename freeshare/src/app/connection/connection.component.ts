@@ -33,6 +33,7 @@ export class ConnectionComponent implements OnInit {
       (data: RepAuth) => {
         console.log(data);
         this.currentUser.token = data.token;
+        this.currentUser.id = data.id;
         this.router.navigate(["/accueil"]);
       },
       (err) => {

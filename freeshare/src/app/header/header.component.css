@@ -3,23 +3,28 @@ nav{
     flex-direction: row;
     background-color:black;
     color: gold;
-    height: 143px;
+    height: 70px;
     align-items: center;
+    width: 100%;
+    height: auto;
+    
     
 }
 button{
     display: flex;
     flex-direction: row;
-    background-color:gold;
+    background-color:none;
     color: black;
-   /*font-size:0.68em;*/
     align-items: center;
     justify-content: space-around;
+    width: fit-content;
+    height:40px;
+   
 }
 .head{
     width:100%;
-    display: flex;
-    flex-direction: column;
+   /* display: flex;*/
+    /*flex-direction: column;*/
     background-color: black;
     padding-bottom: 1%;
 }
@@ -27,4 +32,7 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+nav li{
+    padding: 4px;
 }
