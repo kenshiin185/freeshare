@@ -1,0 +1,12 @@
+verion: '3'
+services:
+  srvapp:
+    image: freeshareback
+    ports:
+    - "4100:3000"
+    depends_on:
+    -mongo
+  mongo:
+    image: mongo
+    ports:
+    - "41017:27017"
