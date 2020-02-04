@@ -22,9 +22,9 @@ export class HeaderComponent implements OnInit {
   }
   public get messgbtn(): string {
     if (this.currentService.isLoged) {
-      return "Deconnection";
+      return "Deconnexion";
     }
-    return "Connection";
+    return "Connexion";
   }
   public navig() {
     if (!this.currentService.isLoged) {
@@ -34,6 +34,13 @@ export class HeaderComponent implements OnInit {
       this.currentService.token = "";
     }
 
+  }
+  public useraccess():boolean{
+    if (this.currentService.token){
+      return true;
+    } else{
+      return false;
+    }
   }
 
 }// fin de class

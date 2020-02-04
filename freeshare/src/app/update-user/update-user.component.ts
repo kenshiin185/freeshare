@@ -33,7 +33,7 @@ export class UpdateUserComponent implements OnInit {
    
       
     
-    this.srvUtilisateur.reqDataByPseudo(this.currentuser.id).subscribe((data) => {
+    this.srvUtilisateur.reqDataByUserId(this.currentuser.id).subscribe((data) => {
       
       this.formModifUser.controls['identifiant'].setValue(data.pseudo);
       this.formModifUser.controls['mail'].setValue(data.mail);

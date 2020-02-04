@@ -1,3 +1,48 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .containformModif{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-items: center;
+    border: 1px solid black;
+   /* background-color: rgb(238, 201, 153);*/
+   background-color: rgb(164, 241, 101);
+    border-radius:4%;
+    box-shadow:2px 2px 6px ;
+    margin-left: 2%;
+}
+h1{
+    text-align: center;
+}
+button btn{
+    height: 80px;
+    margin-left: 100px;
+    
+    
+}
+.sup{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    padding: auto;
+    
+  
+}
+.wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 15%;
+    margin-top: 4%;
+    margin-right: 4%;
 }

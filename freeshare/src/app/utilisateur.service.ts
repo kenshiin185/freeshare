@@ -11,7 +11,7 @@ import { Utilisateurs } from './class/Utilisateur';
 export class UtilisateurService {
 
   constructor(private http: HttpClient) { }
-  reqDataByPseudo(type: string): Observable<Utilisateurs> {
+  reqDataByUserId(type: string): Observable<Utilisateurs> {
     return this.http.get<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs/${type}?filter[fields][pseudo]=true&filter[fields][mail]=true`)
   }
 

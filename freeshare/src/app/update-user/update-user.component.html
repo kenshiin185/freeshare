@@ -1,6 +1,8 @@
-<p>update-user works!</p>
+<h1>Que voulez-vous faire ?</h1>
+<div class="wrap">
 <div class="containformModif">
     <form [formGroup]="formModifUser" (ngSubmit)="onValidateFormModif()">
+      <h4>Modifier profile</h4>
       <label for="">Pseudo</label><br>
       <input type="text" name="pseudo"  formControlName="identifiant"><br>
       <label for="">E-mail</label><br>
@@ -9,4 +11,9 @@
       <input type="password" name="password"  formControlName="password"><br>
       <button [disabled]="!formModifUser.valid">Modifier</button>
     </form>
+    </div>
+    <div class="sup">
+      <p>Vous nous quittez déjà ?</p>
+      <button type="button" class="btn btn-danger" routerLink="/del">Supprimer compte</button>
+    </div>
   </div>

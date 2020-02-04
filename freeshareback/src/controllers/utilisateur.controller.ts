@@ -155,8 +155,15 @@ export class UtilisateurController {
     })
     utilisateurs: Utilisateurs,
   ): Promise<void> {
-    await this.utilisateursRepository.updateById(id, utilisateurs);
+    await this.utilisateursRepository.deleteById(id, utilisateurs);
+    utilisateurs.password = await this.hasher.hashPassword(utilisateurs.password); // hash
+    await this.utilisateursRepository.create(utilisateurs); // save
+     utilisateurs.password = ""; // delete password
+     return;
   }
+
+
+
 
   @put('/utilisateurs/{id}', {
     responses: {

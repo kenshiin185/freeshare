@@ -18,13 +18,16 @@ button{
     align-items: center;
     justify-content: space-around;
     width: fit-content;
-    height:40px;
-   
+    height:40px;  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+button:hover{
+    transform:scale(1.1);
+    box-shadow: 2px 2px 6px grey;
 }
 .head{
     width:100%;
-   /* display: flex;*/
-    /*flex-direction: column;*/
+   
     background-color: black;
     padding-bottom: 1%;
 }

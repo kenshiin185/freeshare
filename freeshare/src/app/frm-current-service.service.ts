@@ -54,7 +54,7 @@ export class FrmCurrentServiceService {
     } else {
       window.sessionStorage.setItem("saveid", i);
     }
-    this._token = i;
+    this._id = i;
   }
   public get isLoged() {
     if (this._token != "") {
