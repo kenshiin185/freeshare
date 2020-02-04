@@ -27,6 +27,7 @@ export class ExpressServer {
     constructor(options: ApplicationConfig = {}) {
         this.app = express();
         this.app.use(cors());
+        this.app.use(express.static(path.join(__dirname,'../public')));
         this.lbApp = new FreesharebackApplication(options);
         this.app.use('/api', this.lbApp.requestHandler);
         this.initElementPassport();

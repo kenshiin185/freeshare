@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildCordova":"ng build freeshareCordova --prod --outputHashing=none"
+    "buildCordova":"ng build freeshareCordova --prod --outputHashing=none",
+    "build:4back":"ng build freeshare --prod --outputHashing=none"
   },
   "private": true,
   "dependencies": {
