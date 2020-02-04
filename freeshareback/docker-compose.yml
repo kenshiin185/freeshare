@@ -5,7 +5,7 @@ services:
     ports:
     - "4100:3000"
     depends_on:
-    -mongo
+    - mongo
   mongo:
     image: mongo
     ports:
