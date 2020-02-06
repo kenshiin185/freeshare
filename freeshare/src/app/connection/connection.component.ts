@@ -19,7 +19,7 @@ export class ConnectionComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService, public currentUser: FrmCurrentServiceService,
+  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService,
     private router: Router) { }
 
   ngOnInit() {
@@ -40,17 +40,13 @@ export class ConnectionComponent implements OnInit {
       (err) => {
         console.log(err);
         this.currentUser.token = "";
-       
+        this.validation = true;
       }
     )
+    
   }
 
-  public valid(): boolean {
-    if (this.currentUser.token != "") {
-      return true;
-    }
-
-  }
+  validation: boolean = false;
 
 }
 

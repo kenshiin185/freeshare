@@ -2,15 +2,15 @@
     L’application du nain. Pour pouvoir profiter de l’application
     et de ses fonctionnalités, rejoinds sa communauté.<br/>
     C’est gratuit et c’est fun !<br/>
-    Alors ne perd pas de temps c’est par ici!
+    Alors ne perds pas de temps c’est par ici!
 </p>
 <div class="containalert">
-<div *ngIf="valid()" class="alert alert-danger" role="alert">
+<div *ngIf="validation" class="alert alert-danger" role="alert">
     Erreur de saisie Pseudo/Mot de passe
 </div>
 </div>
 <div class="containform">
-    <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()" >
+    <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()">
         <h4>Connecte-toi !</h4>
         <label for="">Pseudo</label>
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" formControlName="identifiant">
