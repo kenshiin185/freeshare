@@ -21,4 +21,11 @@ export class UtilisateurService {
     });
   
   }
+
+  reqDataSupUser(id: string,utilisateur:Utilisateurs): Observable<void> {
+    return this.http.delete<void>(`${environment.retBaseUrl}/api/utilisateurs/${id}`,{
+      headers: new HttpHeaders().delete("content-Type", "application/json")
+    });
+  }
+
 }

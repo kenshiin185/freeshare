@@ -5,6 +5,7 @@ import { AuthUtilisateur } from '../class/authutilisateur';
 import { RepAuth } from '../class/rep';
 import { FrmCurrentServiceService } from '../frm-current-service.service';
 import { Router } from '@angular/router';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-connection',
@@ -18,8 +19,8 @@ export class ConnectionComponent implements OnInit {
       password: new FormControl("", [Validators.required])
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService, private currentUser: FrmCurrentServiceService,
-     private router: Router) { }
+  constructor(private comm: CommConnectionUtilisateurService, public currentUser: FrmCurrentServiceService,
+    private router: Router) { }
 
   ngOnInit() {
   }
@@ -39,8 +40,17 @@ export class ConnectionComponent implements OnInit {
       (err) => {
         console.log(err);
         this.currentUser.token = "";
+       
       }
     )
   }
+
+  public valid(): boolean {
+    if (this.currentUser.token != "") {
+      return true;
+    }
+
+  }
+
 }
 

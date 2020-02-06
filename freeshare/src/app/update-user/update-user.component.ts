@@ -60,4 +60,18 @@ export class UpdateUserComponent implements OnInit {
     )
   }
 
+  public supuser(){
+    let UpdtWrk: Utilisateurs = new Utilisateurs();
+   
+    this.srvUtilisateur.reqDataSupUser(this.currentuser.id,UpdtWrk).subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(["/accueil"]);
+        this.currentuser.token="";
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
 }

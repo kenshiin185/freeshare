@@ -32,3 +32,11 @@ a{
 a:hover{
     transform:scale(1.1);
 }
+.alert{
+    text-align: center;
+    width: 30%;
+}
+.containalert{
+    display: flex;
+    justify-content: center;
+}

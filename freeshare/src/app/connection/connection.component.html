@@ -4,6 +4,11 @@
     C’est gratuit et c’est fun !<br/>
     Alors ne perd pas de temps c’est par ici!
 </p>
+<div class="containalert">
+<div *ngIf="valid()" class="alert alert-danger" role="alert">
+    Erreur de saisie Pseudo/Mot de passe
+</div>
+</div>
 <div class="containform">
     <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()" >
         <h4>Connecte-toi !</h4>
@@ -13,8 +18,9 @@
         <label for="">Mot de passe</label>
         <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
         <br/>
-        <button [disabled]="!formAuth.valid">Se connecter</button>
+        <button  [disabled]="!formAuth.valid" name="sub">Se connecter</button>
         <br/>
         <a href="" routerLink="/creation-utilisateur">Nouveau ? Créer un compte</a>
     </form>
 </div>
+
