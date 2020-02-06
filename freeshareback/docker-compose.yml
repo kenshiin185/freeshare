@@ -2,6 +2,13 @@ version: '3'
 services:
   srvapp:
     image: freeshareback
+    volumes:
+    -type: volume
+    source:/home/node/app/download
+    target:downloadbruno
+    -type: volume
+    source:/home/node/app/vignette
+    target:vignettebruno
     ports:
     - "4100:3000"
     depends_on:
@@ -10,3 +17,7 @@ services:
     image: mongo
     ports:
     - "41017:27017"
+    volumes:
+    -type: volume
+    source: /data/db
+    target: dbbruno
