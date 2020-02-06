@@ -4,11 +4,11 @@ services:
     image: freeshareback
     volumes:
     -type: volume
-    source:/home/node/app/download
-    target:downloadbruno
+    source: /home/node/app/download
+    target: downloadbruno
     -type: volume
-    source:/home/node/app/vignette
-    target:vignettebruno
+    source: /home/node/app/vignette
+    target: vignettebruno
     ports:
     - "4100:3000"
     depends_on:
