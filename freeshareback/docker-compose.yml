@@ -3,7 +3,7 @@ services:
   srvapp:
     image: freeshareback
     volumes:
-    -download:/home/node/app/download
+    -download: /home/node/app/download
     -vignette: /home/node/app/vignette
 
 
@@ -17,7 +17,7 @@ services:
     - "41017:27017"
     volumes:
     - db:/data/db
-     
+
 volumes:
   download:
   vignette:
