@@ -3,8 +3,8 @@ services:
   srvapp:
     image: freeshareback
     volumes:
-    -download: /home/node/app/download
-    -vignette: /home/node/app/vignette
+    - download:/home/node/app/download
+    - vignette:/home/node/app/vignette
 
 
     ports:
