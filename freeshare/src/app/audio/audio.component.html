@@ -2,15 +2,15 @@
 <div class="containaudio">
 
 
-    <div *ngFor="let source of tabSources" class="media">
-      <img src="assets/images/audiologo4.png" class="mr-3" alt="...">
-      <div class="media-body">
-        <h5 class="mt-0">{{source.title}}</h5>
-        {{source.description}}
-        <button type="button" class="btn btn-warning"><a href="{{buildUrlHref(source._id)}}">Télécharger</a></button>
-      </div>
+  <div *ngFor="let source of tabSources" class="media">
+    <img src="assets/images/audiologo4.png" class="mr-3" alt="...">
+    <div class="media-body">
+      <h5 class="mt-0">{{source.title}}</h5>
+      {{source.description}}
+      <button *ngIf="useraccess()" type="button" class="btn btn-warning">
+        <a href="{{buildUrlHref(source._id)}}">Télécharger</a>
+      </button>
     </div>
-  
-  
   </div>
-  <!--fin du containaudio-->
+</div>
+<!--fin du containaudio-->

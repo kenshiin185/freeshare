@@ -7,6 +7,9 @@ import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
 import { environment } from 'src/environments/environment';
 import { from } from 'rxjs';
+import { FrmCurrentServiceService } from '../frm-current-service.service';
+import { UtilisateurService } from '../utilisateur.service';
+import { Utilisateurs } from '../class/Utilisateur';
 
 
 
@@ -16,8 +19,11 @@ import { from } from 'rxjs';
   styleUrls: ['./accueil.component.css']
 })
 export class AccueilComponent implements OnInit {
+  [x: string]: any;
 
   constructor(private comm: CommConnectionUtilisateurService,
+    public currentService: FrmCurrentServiceService,
+    public srvUtilisateur: UtilisateurService,
     private srvSources: SourcesService) { }
 
   tabSources: Sources[] = [];
@@ -40,5 +46,15 @@ export class AccueilComponent implements OnInit {
   buildUrlHref(buildH: string): string {
     return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
   }
+
+  public useraccess(): boolean {
+    if (this.currentService.token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 
 }

@@ -6,7 +6,7 @@
     <div class="card-body">
       <h5 class="card-title">{{source.title}}</h5>
       <p class="card-text">{{source.description}}</p>
-     <button type="button" class="btn btn-warning"><a href="{{buildUrlHref(source._id)}}" target="_self">Télécharger</a></button>
+     <button *ngIf="useraccess()" type="button" class="btn btn-warning"><a href="{{buildUrlHref(source._id)}}" target="_self">Télécharger</a></button>
     </div>
   </div>
 
@@ -14,5 +14,6 @@
 </div>
 <!--fin du containtop3-->
 <p>Bienvenue sur Free Share !<br />
-  L’application du nain. Pour pouvoir profiter de l’application et de ses fonctionnalités,rejoins sa communauté<br />
+  La plateforme de téléchargement et de partage. Pour pouvoir profiter de l’application 
+  et de ses fonctionnalités,rejoins la communauté<br />
   en t'inscrivant dans l'onglet connexion.

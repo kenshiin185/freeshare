@@ -10,6 +10,13 @@ h5{
 }
 .media{
     margin:2%;
+    border: 0.5px solid grey;
+    width: 600px;
+    height: 95px;
+    display: flex;
+    border-radius: 4px;
+    box-shadow: 4px 4px 7px grey;
+   
 }
 .containaudio{
     width:80%;
@@ -24,3 +31,24 @@ a{
     text-decoration-line:none;
     color:black;
 }
+img{
+    height: 94px;
+}
+button{
+float: right;
+margin-right: 2%;
+ 
+}
+@media screen and (max-width: 640px) {
+    .media{
+        margin:2%;
+        border: 0.5px solid grey;
+        width: 400px;
+        height: 305px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+        box-shadow: 4px 4px 7px grey;
+       
+    }
+  }

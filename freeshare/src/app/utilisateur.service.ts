@@ -27,5 +27,8 @@ export class UtilisateurService {
       headers: new HttpHeaders().delete("content-Type", "application/json")
     });
   }
+  reqhiuser(type: string): Observable<Utilisateurs> {
+    return this.http.get<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs/${type}?filter[fields][pseudo]=true`)
+  }
 
 }

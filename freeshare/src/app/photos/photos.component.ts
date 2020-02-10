@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { SourcesService } from '../sources.service';
 import { Sources } from '../class/Sources';
 import { environment} from 'src/environments/environment';
+import { FrmCurrentServiceService } from '../frm-current-service.service';
 
 @Component({
   selector: 'app-photos',
@@ -13,7 +14,7 @@ export class PhotosComponent implements OnInit {
   http: any;
   idrecu: any;
 
-  constructor(private srvSources: SourcesService) { }
+  constructor(private srvSources: SourcesService,public currentService: FrmCurrentServiceService) { }
   
   tabSources: Sources[] = [];
 
@@ -34,6 +35,14 @@ export class PhotosComponent implements OnInit {
 
   buildUrlHref(buildH: string): string {
     return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
+  }
+
+  public useraccess():boolean{
+    if (this.currentService.token){
+      return true;
+    } else{
+      return false;
+    }
   }
 
 }
