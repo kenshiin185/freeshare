@@ -1,8 +1,56 @@
 .containfooter{
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-   margin-top: 3%;
+    
+    background-color: black;
+    color: gold;
+   
+    font-family: cursive;
 }
-button{
-    background-color: gold;
+h3{
+  font-family: cursive;
+  width: 100px;
+  margin: auto;
+  margin-bottom: 3%;
+  
+}
+.elements{
+    display: flex;
+    flex-direction: row;
+    font-family: cursive;
+   
+    justify-content: space-between;
+   
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: gold;
+    margin-left: 2%;
+}
+a{
+    color: gold;
+}
+img{
+    height: 40px;
+    width: 40px;
+margin: auto;
+
+}
+.infos{
+    text-align: center;
+    margin-right: 2%;
+}
+.flag{
+    height: 5px;
+    width: 100%;
+
+}
+.bot{
+    margin-top: 4%;
+}
+h5{
+    text-decoration: underline;
 }

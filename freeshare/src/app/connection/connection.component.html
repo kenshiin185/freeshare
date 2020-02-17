@@ -7,10 +7,10 @@
 <div class="containform">
     <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()">
         <h4>Connecte-toi !</h4>
-        <label for="">Pseudo</label>
+        <img src="../assets/images/edit.png" alt="">
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" formControlName="identifiant">
         <br/>
-        <label for="">Mot de passe</label>
+        <img src="../assets/images/password.png" alt="">
         <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
         <br/>
         <button  [disabled]="!formAuth.valid" name="sub">Se connecter</button>

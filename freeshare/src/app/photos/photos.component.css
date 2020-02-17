@@ -22,13 +22,27 @@
    
    
 }
-/*.card:hover{
-    transform: scale(1.4);
-    box-shadow: 3px 3px 8px;
-}*/
 h1{
-    text-align: center;
-    font-weight: bolder;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, gold, rgb(56, 54, 54));
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 3%;
+    transition: .5s;
+    animation: slideDown 0.7s;
+}
+@keyframes slideDown{
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 h5{
     font-style: italic;
@@ -51,14 +65,33 @@ a{
     text-decoration-line: none;
     color: black;
 }
-button{
-  box-shadow: 2px 2px 6px; 
-  font-size:0.6em; 
-}
-button:hover{
-    transform: scale(1.1);
-    box-shadow: 3px 3px 8px;
-}
+
 p{
     height: 110px;
+}
+button{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    color: black;
+    align-items: center;
+    justify-content: space-around;
+   width: 92px;
+      margin-bottom: 2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition:0.5s;
+    background-size: 220%;
+    background-image: linear-gradient(
+        to right,
+        rgb(255, 196, 0),
+        #fcfbbe,
+        rgb(255, 196, 0)
+    );
+    border: none;
+    box-shadow: 2px 2px 5px grey;
+}
+button:hover{
+   background-position:right;
+    
+    
 }

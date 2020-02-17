@@ -6,9 +6,10 @@ nav{
     height: 70px;
     align-items: center;
     width: 100%;
-    height: auto;
-    
-    
+    height: auto; 
+}
+.navbar-brand{
+    color: gold;
 }
 button{
     display: flex;
@@ -20,10 +21,19 @@ button{
     width: fit-content;
     height:40px;  
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition:0.5s;
+    background-size: 220%;
+    background-image: linear-gradient(
+        to right,
+        rgb(255, 196, 0),
+        #fcfbbe,
+        rgb(255, 196, 0)
+    );
 }
 button:hover{
-    transform:scale(1.1);
-    box-shadow: 2px 2px 6px grey;
+   background-position:right;
+    
+    
 }
 .head{
     width:100%;

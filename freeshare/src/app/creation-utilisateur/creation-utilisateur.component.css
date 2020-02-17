@@ -9,16 +9,58 @@ form{
     height: 300px;
     align-items: center;
     border: 1px solid black;
-    background-color: rgb(238, 201, 153);
+    background-color: rgb(238, 232, 153);
     border-radius:4%;
     box-shadow:2px 2px 6px ;
+    margin-bottom: 3%;
+    position: relative;
+    transition: .5s;
+    animation: slideDown 1s;
+}
+@keyframes slideDown{
+    0%{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 .containformCreation{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 3%;
-   
+}
+button{
+    display: flex;
+    flex-direction: row;
+    background-color:none;
+    color: black;
+    align-items: center;
+    justify-content: space-around;
+    width: fit-content;
+    height:40px;  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition:0.5s;
+    background-size: 220%;
+    background-image: linear-gradient(
+        to right,
+        rgb(255, 196, 0),
+        #fcfbbe,
+        rgb(255, 196, 0)
+    );
+    position: absolute;
+    bottom: 2%;
+}
+button:hover{
+   background-position:right;
     
     
+}
+img{
+    width: 20px;
+    height: 20px;
+    margin-top: 2%;
 }

@@ -21,7 +21,7 @@ export class CreationUtilisateurComponent implements OnInit {
 
   constructor(private comm: CommConnectionUtilisateurService,private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit():void {
   }
   onValidateFormCreate() {
     console.log("validate formulaire");

@@ -10,6 +10,7 @@ import { CreationUtilisateurComponent } from './creation-utilisateur/creation-ut
 import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'partager', component: PartagerComponent },
   { path: 'user-page', component: UserPageComponent },
   { path: 'update', component: UpdateUserComponent },
-  { path: 'top10', component: Top10Component }
+  { path: 'footer', component: FooterComponent}
 ];
 
 @NgModule({

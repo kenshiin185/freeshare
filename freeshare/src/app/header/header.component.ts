@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['/connection']);
     } else {
       this.currentService.token = "";
+      this.router.navigate(['/accueil']);
     }
 
   }
