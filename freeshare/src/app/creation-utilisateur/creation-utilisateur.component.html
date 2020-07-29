@@ -12,6 +12,12 @@
        
         <img src="../assets/images/password.png" alt="">
         <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
+        <div class="rgpd">
+        <input type="checkbox" name="rgpd" id=""formControlName="rgpd"><label>En cochant cette case j'accepte que mes données
+         personnelles soit utilisées pour me recontacter
+        dans le cadre de ma demande indiquée dans ce formulaire. Aucun autre traitement ne sera effectué avec mes informations
+        </label>
+        </div>
         <button [disabled]="!formCreateAuth.valid">S'inscrire</button>
 
     </form>

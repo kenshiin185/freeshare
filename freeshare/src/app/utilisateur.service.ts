@@ -14,6 +14,9 @@ export class UtilisateurService {
   reqDataByUserId(type: string): Observable<Utilisateurs> {
     return this.http.get<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs/${type}?filter[fields][pseudo]=true&filter[fields][mail]=true`)
   }
+  reqPseudoById(type:string): Observable<Utilisateurs> {
+    return this.http.get<Utilisateurs>(`${environment.retBaseUrl}/api/utilisateurs/${type}?filter[fields][pseudo]=true`)
+  }
 
   reqDataUpdate(id: string,utilisateurs:Utilisateurs): Observable<void> {
     return this.http.patch<void>(`${environment.retBaseUrl}/api/utilisateurs/${id}`, JSON.stringify(utilisateurs), {

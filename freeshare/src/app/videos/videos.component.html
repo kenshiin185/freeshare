@@ -1,16 +1,14 @@
 <h1>Galerie vidéos</h1>
 <div class="containvideo">
-
-
   <div *ngFor="let source of tabSources" class="media">
     <img src="assets/images/movielogo.png" class="mr-3" alt="...">
     <div class="media-body">
       <h5 class="mt-0">{{source.title}}</h5>
       {{source.description}}
-      <button *ngIf="useraccess()" type="button" class="btn btn-warning"><a href="{{buildUrlHref(source._id)}}">Télécharger</a></button>
+      <button *ngIf="useraccess()" type="button" class="btn btn-warning">
+        <a href="{{buildUrlHref(source._id)}}">Télécharger</a>
+      </button>
     </div>
   </div>
-
-
 </div>
 <!--fin du containvideo-->

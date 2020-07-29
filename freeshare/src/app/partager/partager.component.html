@@ -2,7 +2,7 @@
     <form [formGroup]="formShare" (ngSubmit)="onValidateFormShare()">
         <h4>Pour partager c'est içi !!</h4>
         <label for="">Fichier</label>
-        <input [disabled]="idrecu" type="file" (change)="onUpload($event.target.files)"/>
+        <input [disabled]="idrecu" type="file"class="file" (change)="onUpload($event.target.files)"/>
         <label for="">Titre</label>
         <input type="text" name="titre" placeholder="Entrez votre titre" formControlName="titre">
         <label for="">Description</label>

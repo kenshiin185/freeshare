@@ -14,9 +14,9 @@ form{
     text-shadow: 1px 1px 3px grey;
     height: 300px;
     margin-bottom: 3%;
-   position: relative;
-   transition: .5s;
-animation: slideDown 1s;
+    position: relative;
+    transition: .5s;
+    animation: slideDown 1s;
 }
 @keyframes slideDown{
     0%{

@@ -56,6 +56,8 @@ h5{
 img{
    
     height: 104px;
+    transition: 1.5s;
+    box-shadow: 4px 4px 10px grey;
 }
 img:hover{
     transform: scale(2);
@@ -93,5 +95,15 @@ button{
 button:hover{
    background-position:right;
     
+    
+}
+
+@media screen and (min-width: 200px) and (max-width: 690px) {
+    h1{
+       width: auto;
+       margin: auto;
+       text-align: center;
+       font-size: 22px; 
+    }
     
 }

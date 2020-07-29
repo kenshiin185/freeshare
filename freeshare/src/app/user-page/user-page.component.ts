@@ -29,7 +29,7 @@ export class UserPageComponent implements OnInit {
     private modalService: BsModalService ) { }
   tabSources: Sources[] = [];
   ngOnInit() {
-    this.formModifUser.controls['identifiant'].setValue("gégé")
+    this.formModifUser.controls['identifiant'].setValue("string")
     this.srvSources.reqDataByPseudo('Bruno').subscribe((data) => {
       this.tabSources = data;
       console.log(data);

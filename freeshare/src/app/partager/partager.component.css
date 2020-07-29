@@ -2,14 +2,16 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 form{
-    
+    font-size: 10px;
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width:auto;
+    max-width: 300px;
     height: 350px;
     align-items: center;
     border: 1px solid black;
-    
+    transition: 0.5;
+    animation: slideDown 1s;
     text-shadow: 1px 1px 4px grey;
     background-color: rgb(238, 201, 153);
     border-radius:4%;
@@ -25,4 +27,33 @@ label{
 }
 h4{
     font-weight: bolder;
+    font-size: 18px;
+}
+@keyframes slideDown{
+    0%{
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 690px) {
+    .containformshare{
+        width: auto;
+    }
+    form{
+        width: auto;
+        margin: auto;
+        padding: 1%;
+        font-size: 12px;
+    }
+    .file{
+        width: auto;
+        margin: auto;
+        font-size: 10px;
+        margin-top: 2%;
+    }
 }

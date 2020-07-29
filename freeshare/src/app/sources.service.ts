@@ -23,18 +23,12 @@ export class SourcesService {
     return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][typemime][like]=${type}`)
   }
   reqDataByLastPost(type: string): Observable<Sources[]> {
-    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][typemime][like]=image&filter[order]=date%20DESC&filter[limit]=3`)
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?
+    filter[where][typemime][like]=image&filter[order]=date%20DESC&filter[limit]=3`)
   }
   reqDataByPseudo(type:string): Observable<Sources[]>{
     return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][pseudo]=${type}`)
   }
-
-  reqDataBytypes(type: string): Observable<Sources[]> {
-    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][typemime]=${type['video/mpeg']} ||
-    ${type['video/mp4']} || ${type['video/quicktime']} || ${type['video/x-ms-wmv']} || ${type['video/x-msvideo']}
-    || ${type['video/x-flv']} || ${type['video/web']}`)
-  }
-
   reqUpdateSrc(source: Sources): Observable<void> {
     return this.http.patch<void>(`${environment.retBaseUrl}/api/sources-bdds/${source._id}`,
       JSON.stringify(source),

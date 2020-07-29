@@ -3,6 +3,5 @@ export class Utilisateurs {
     pseudo?: string;
     mail?: string;
     password?: string;
-  
-  
+    rgpd?:boolean;
 }

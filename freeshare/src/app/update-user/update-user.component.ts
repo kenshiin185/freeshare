@@ -49,6 +49,7 @@ export class UpdateUserComponent implements OnInit {
     UpdtWrk.pseudo = this.formModifUser.value.identifiant;
     UpdtWrk.mail = this.formModifUser.value.mail;
     UpdtWrk.password = this.formModifUser.value.password;
+    UpdtWrk.rgpd = true;
     this.srvUtilisateur.reqDataUpdate(this.currentuser.id,UpdtWrk).subscribe(
       (data) => {
         console.log(data);

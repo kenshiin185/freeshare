@@ -1,12 +1,14 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
 }
 .containLastPost{
     display: flex;
     flex-direction:row;
     justify-content: space-around;
-    width: 45%;
+    width: 80%;
     margin: auto;
+    
 }
 p{
     text-align: center;
@@ -19,24 +21,45 @@ a{
 }
 h1{
     text-align: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, gold, rgb(56, 54, 54));
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 600px;
+    margin: auto;
+    transition: .5s;
+    animation: slideDown 0.7s;
 }
+
+@keyframes slideDown{
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 h5{
     font-style: italic;
     font-weight: bolder;
 }
 img{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 8Opx;
 }
 .card{
-    margin: 6%;
-    border:none;
+   
+    border: none;
     display: flex;
-    justify-content: center;
-    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    width: 15%;
-    height: 15%;
+    width: 25%;
+    height:max-content;
 }
 button{
     display: flex;
@@ -45,7 +68,8 @@ button{
     color: black;
     align-items: center;
     justify-content: space-around;
-    width: fit-content;
+    width: 100px;
+    margin: auto;
     height:40px;  
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     transition:0.5s;
@@ -64,3 +88,65 @@ button:hover{
     
     
 }
+p{
+    margin-top: 3%;
+}
+@media screen and (min-width: 200px) and (max-width: 830px) {
+    *{
+        margin: auto;
+    }
+    .card-text{
+        display:none;
+    }
+    h5{
+        display: none;
+    }
+
+    .containLastPost{
+        display: flex;
+        flex-direction: column;
+    }
+    .card{
+        width: 100%;
+        margin-top: 5%;
+        height:100%;
+      
+    }
+    .btn{
+        margin-top: 3%;
+        margin: auto;
+        width: 100px;
+    }
+    h1{
+        width: 80%;
+        font-size:22px;
+        margin: auto;
+        margin-bottom: 5%;
+    }
+    img{
+        width: 100%;
+        margin: auto;
+    }
+}
+#flag{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+    font-size:0.5em ;
+    border: 0.5px solid grey;
+    border-radius: 6px;
+    width: 95%;
+    margin: auto;
+    background-color: rgba(247, 244, 244, 0.911);
+}
+
+
+p{
+    margin: auto;
+}
+.card img{
+    width: 100px;
+    height: 130px;
+}
+

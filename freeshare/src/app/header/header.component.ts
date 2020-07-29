@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FrmCurrentServiceService } from '../frm-current-service.service';
 import { Router } from '@angular/router';
+import { UtilisateurService } from '../utilisateur.service';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor(public currentService: FrmCurrentServiceService, public router: Router) { }
+  constructor(public currentService: FrmCurrentServiceService, public router: Router,private srvUtilisateur: UtilisateurService) { }
 
   ngOnInit() {
   }
@@ -38,6 +39,7 @@ export class HeaderComponent implements OnInit {
   }
   public useraccess():boolean{
     if (this.currentService.token){
+      
       return true;
     } else{
       return false;

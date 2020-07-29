@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { VideosComponent } from './videos/videos.component';
 import { AccueilComponent } from './accueil/accueil.component';
-import { Top10Component } from './top10/top10.component';
 import { PartagerComponent } from './partager/partager.component';
 import { PhotosComponent } from './photos/photos.component';
 import { AudioComponent } from './audio/audio.component';
@@ -11,6 +10,7 @@ import { ConnectionComponent } from './connection/connection.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { FooterComponent } from './footer/footer.component';
+import { PolitiquecfComponent } from './politiquecf/politiquecf.component';
 
 
 
@@ -25,6 +25,7 @@ const routes: Routes = [
   { path: 'partager', component: PartagerComponent },
   { path: 'user-page', component: UserPageComponent },
   { path: 'update', component: UpdateUserComponent },
+  {path: 'politiquecf', component: PolitiquecfComponent},
   { path: 'footer', component: FooterComponent}
 ];
 

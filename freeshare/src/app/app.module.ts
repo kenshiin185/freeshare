@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { PolitiquecfComponent } from './politiquecf/politiquecf.component';
 
 @NgModule({
   declarations: [
@@ -38,10 +39,9 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     CreationUtilisateurComponent,
     FooterComponent,
     ConnectionComponent,
-
     UserPageComponent,
-
-    UpdateUserComponent
+    UpdateUserComponent,
+    PolitiquecfComponent
   ],
   imports: [
     BrowserModule,

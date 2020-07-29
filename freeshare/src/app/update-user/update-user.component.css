@@ -1,28 +1,39 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
 .containformModif{
     text-align: center;
     display: flex;
     justify-content: center;
     margin-bottom: 3%;
+    
 }
 form{
     display: flex;
     flex-direction: column;
-    width: 250px;
+    width: 300px;
     align-items: center;
     border: 1px solid black;
     background-color: rgb(164, 241, 101);
     border-radius:4%;
     box-shadow:2px 2px 6px ;
-    margin-left: 2%;
+    margin-left: 45%;
+    margin-top: 5%;
     transition: .5s;
     animation: slideDown 0.8s;
 }
 .sup{
     transition: .5s;
     animation: slideRight 0.8s;
+    width: 150px;
+    margin-right: 0;
+    
 }
 @keyframes slideDown{
     0%{
@@ -46,7 +57,31 @@ form{
 }
 h1{
     text-align: center;
+    font-size: 1.4em;
+    
 }
+
+@media screen and (min-width: 200px ) and (max-width: 710px ){
+     .wrap{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        
+        flex-wrap: wrap;
+    
+    }
+    form{
+        margin: auto;
+    }
+    .sup{
+        margin: auto;
+    }
+    h1{
+        width: 90%;
+        
+    }
+}
+
 button btn{
     height: 80px;
     margin-left: 100px;
@@ -58,16 +93,12 @@ button btn{
     flex-direction: column;
     text-align: center;
     align-items: center;
-    margin: auto;
+    
     padding: auto;
+    height: 80px;
+    width: 200px;
+    margin-top: 10%;
     
   
 }
-.wrap{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 15%;
-    margin-top: 4%;
-    margin-right: 4%;
-}
+

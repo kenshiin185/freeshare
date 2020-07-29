@@ -109,4 +109,13 @@ margin-right: 2%;
         bottom: 4%;
         left: 90px;
     }
+    .containaudio{
+        width: auto;
+    }
+    h1{
+        width: auto;
+        margin: auto;
+        text-align: center;
+        font-size: 22px;
+    }
     }

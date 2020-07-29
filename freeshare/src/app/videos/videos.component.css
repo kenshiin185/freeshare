@@ -82,7 +82,7 @@ button:hover{
 display: flex;
 flex-direction: column;
 margin: auto;
-width: 300px;
+width: auto;
 height: 150px;
 margin-bottom: 3%;
 position: relative;
@@ -94,8 +94,18 @@ img{
 }
 button{
     
-    position: absolute;;
+    position: absolute;
     bottom: 4%;
-    left: 90px;
+    left: 27%;
+    
+}
+.containvideo{
+    width: auto;
+}
+h1{
+    width: auto;
+    margin: auto;
+    font-size: 22px;
+    text-align: center;
 }
 }

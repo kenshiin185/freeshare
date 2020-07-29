@@ -1,0 +1,17 @@
+
+.wrappolicy{
+    width:500px;
+    margin: auto;
+    border: 0.5px solid grey;
+    box-shadow: 4px 4px 8px grey;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 4px;
+}
+
+@media screen and (min-width: 200px) and (max-width: 690px) {
+    .wrappolicy{
+        width: auto;
+    }
+}

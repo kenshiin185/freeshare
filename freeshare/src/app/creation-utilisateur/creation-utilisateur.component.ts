@@ -16,6 +16,7 @@ export class CreationUtilisateurComponent implements OnInit {
       identifiant: new FormControl("", [Validators.required]),
       mail: new FormControl("", [Validators.required]),
       password: new FormControl("", [Validators.required]),
+      rgpd: new FormControl("", [Validators.required]),
     }
   );
 
@@ -30,6 +31,7 @@ export class CreationUtilisateurComponent implements OnInit {
     CreateWrk.pseudo = this.formCreateAuth.value.identifiant;
     CreateWrk.mail = this.formCreateAuth.value.mail;
     CreateWrk.password = this.formCreateAuth.value.password;
+    CreateWrk.rgpd = this.formCreateAuth.value.rgpd;
     this.comm.CreationUtilisateur(CreateWrk).subscribe(
       (data: Utilisateurs) => {
         console.log(data);
