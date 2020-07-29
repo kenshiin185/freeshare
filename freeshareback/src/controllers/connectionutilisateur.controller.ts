@@ -1,12 +1,6 @@
 import { AuthUtilisateur } from "../class/authutilisateur";
 import { RepAuth } from "../class/rep";
 import { post, requestBody, HttpErrors } from "@loopback/rest";
-
-// Uncomment these imports to begin using these cool features!
-
-// import {inject} from '@loopback/context';
-
-
 import { v4 } from "uuid";
 import { repository } from "@loopback/repository";
 import { UtilisateursRepository } from "../repositories";
@@ -28,20 +22,12 @@ export class ConnectionutilisateurController {
 
   @post("/login")
   public async login(@requestBody(AuthUtilisateur) userData: AuthUtilisateur): Promise<RepAuth> {
-
-
     const userTemp = await this.userFreeshareService.verifyCredentials(userData);
-
     const prf : UserProfile = this.userFreeshareService.convertToUserProfile(userTemp);
     const newToken : string = await this.tokenService.generateToken(prf);
-
     const rep = new RepAuth(); // instance
     rep.token = newToken;
     rep.id = userTemp._id;
     return rep;
-
-
-
   }
-
 }

@@ -179,13 +179,10 @@ export class SourcesCtrlController {
   }
 
 
-@get("/images/{_id}")
-async getImage(@param.path.string('_id') _id: string) {
-  console.log(_id);
-
- // const img = await readFile(`download/${_id}`);
-  const img = await readFile(`vignette/${_id}`);
-
-  return img;
-}
+  @get("/images/{_id}")
+  async getImage(@param.path.string('_id') _id: string) {
+    console.log(_id);
+    const img = await readFile(`vignette/${_id}`);
+    return img;
+  }
 }

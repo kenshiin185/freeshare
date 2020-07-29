@@ -1,6 +1,4 @@
-
 import { UserProfile } from "@loopback/security";
-
 
 export namespace AutoristaionNS {
   export interface IAutorisation {

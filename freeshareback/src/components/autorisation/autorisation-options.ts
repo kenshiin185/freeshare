@@ -1,4 +1,3 @@
-
 import { AuthorizationOptions, AuthorizationDecision } from "@loopback/authorization";
 
 export const autorisationOptions : AuthorizationOptions = {

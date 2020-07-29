@@ -1,21 +1,14 @@
-import { bind, /* inject, */ BindingScope, inject } from '@loopback/core';
+import { bind, BindingScope, inject } from '@loopback/core';
 import { TokenService } from '@loopback/authentication';
 import { UserProfile, securityId } from "@loopback/security";
 import { promisify } from 'util';
 import { HttpErrors, RestBindings } from '@loopback/rest';
-import { sign , verify } from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 import { Request } from "express-serve-static-core";
-//
-//import { UserProfileCustom } from '../class/UserProfilCustom';
 import { AddressInfo } from 'net';
 import { TokenNS } from '../types';
 
-//const signAsync = promisify(sign);
 const verifyAsync = promisify(verify);
-
-
-
-
 @bind({ scope: BindingScope.TRANSIENT })
 export class JwtService implements TokenService {
 
@@ -65,15 +58,6 @@ export class JwtService implements TokenService {
 
       userProfile = this.getInfoToken(decryptedToken);
 
-     // const addQury: AddressInfo = this.request.connection.address() as AddressInfo;
-     // console.log(addQury)
-
-     // if (addQury.address !== decryptedToken.add.address) {
-     //   throw new HttpErrors.Unauthorized(
-       //   `erreur`,
-       // );
-     // }
-
     } catch (error) {
       throw new HttpErrors.Unauthorized(
         `Error verifying token: ${error.message}`,
@@ -83,11 +67,7 @@ export class JwtService implements TokenService {
     return userProfile;
 
   }
-
-
-  //
   // generation du jeton
-  //
   async generateToken(userProfile: UserProfile): Promise<string> {
 
     if (!userProfile) {
@@ -95,14 +75,13 @@ export class JwtService implements TokenService {
         'erreur',
       );
     }
-
     console.log(`Generate ${JSON.stringify(userProfile)}`);
     // Generate a JSON Web Token
     let token: string;
     const obj4Token: any = userProfile;
 
     try {
-      token = <string> sign(userProfile, this.jwtSecret,{
+      token = <string>sign(userProfile, this.jwtSecret, {
         expiresIn: this.jwtExpiresIn
       });
     } catch (error) {
@@ -110,7 +89,7 @@ export class JwtService implements TokenService {
     }
 
     return token;
-    
+
   }
 
 }

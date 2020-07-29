@@ -2,7 +2,7 @@
   "name": "freeshareds",
   "connector": "mongodb",
   "url": "",
-  "host": "mongo",
+  "host": "",
   "port": 27017,
   "user": "",
   "password": "",

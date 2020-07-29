@@ -1,10 +1,8 @@
-import { bind, /* inject, */ BindingScope } from '@loopback/core';
-
+import { bind,BindingScope } from '@loopback/core';
 import { genSalt, hash } from 'bcryptjs';
 import { compare } from 'bcryptjs';
 import { inject } from '@loopback/core';
 import { PasswordNS  } from '../types';
-
 
 @bind({ scope: BindingScope.TRANSIENT })
 export class PasswordHasherService implements PasswordNS.IPasswordHasher {

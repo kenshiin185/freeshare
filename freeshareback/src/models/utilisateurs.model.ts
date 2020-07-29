@@ -35,6 +35,12 @@ export class Utilisateurs extends Entity {
   })
   password: string;
 
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  rgpd: boolean;
+
   // Define well-known properties here
 
   // Indexer property to allow additional data

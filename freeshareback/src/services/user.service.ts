@@ -39,12 +39,12 @@ export class UserFreeshareService implements UserService<Utilisateurs, AuthUtili
       throw new HttpErrors.Unauthorized("Erreur user/password 2");
 
     }
-   
+
     return userRead;
   }
   /**
-   * 
-   * @param user 
+   *
+   * @param user
    */
 
   convertToUserProfile(user: Utilisateurs): UserProfile {

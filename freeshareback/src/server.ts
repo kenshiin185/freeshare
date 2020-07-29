@@ -27,7 +27,7 @@ export class ExpressServer {
     constructor(options: ApplicationConfig = {}) {
         this.app = express();
         this.app.use(cors());
-        this.app.use(express.static(path.join(__dirname,'../public')));
+        this.app.use(express.static(path.join(__dirname, '../public')));
         this.lbApp = new FreesharebackApplication(options);
         this.app.use('/api', this.lbApp.requestHandler);
         this.initElementPassport();
@@ -67,31 +67,27 @@ export class ExpressServer {
 
     private initUpLoader() {
         this.app.use(fileUpLoad());
-
         this.app.post("/uploadF", passport.authenticate('jwt', { session: false }), (req: any, res: any) => {
-
-
             console.log("---upload---");
             console.log(req.files);
-
             if (!req.files || Object.keys(req.files).length === 0) { // pas de fichier reçu ?
                 return res.status(400).send('No files were uploaded.');
             }
-
             let sampleFile: any = req.files.file;
-
             const fileNamePhysique: string = `${v4()}-${sampleFile.name}`;
-
             sampleFile.mv(`download/${fileNamePhysique}`, (err: any) => {
                 if (err) {
                     return res.status(500).send("err déplacement file");
                 }
-
-                // mv ok
+                /****************************************/
+                /******* mv ok**************************/
+                /**************************************/
                 // recherche du repo
                 this.lbApp.getRepository(SourcesBddRepository).then((repo: SourcesBddRepository) => {
                     // repo trouvé
-                    // création de l'instance sourcebdd
+                    /****************************************************/
+                    /********création de l'instance sourcebdd***********/
+                    /**************************************************/
                     const instanceSources: SourcesBdd = new SourcesBdd();
                     instanceSources.pathFile = fileNamePhysique;
                     instanceSources.fileName = sampleFile.name;
@@ -105,9 +101,10 @@ export class ExpressServer {
                     instanceSources.description = "";
                     instanceSources.typemime = sampleFile.mimetype;
                     repo.create(instanceSources).then((avecId: SourcesBdd) => {
-
+                        /************************************************************* */
+                        /*******conversion avec image magick en vignette************* */
+                        /*********************************************************** */
                         if (sampleFile.mimetype.startsWith("image/")) {
-
                             im.convert([`download/${fileNamePhysique}`, '-resize', '150x150', `vignette/${fileNamePhysique}`],
                                 function (err: any, stdoutOut: any) {
                                     if (err) {
@@ -127,31 +124,23 @@ export class ExpressServer {
                                 }
                             );
                         }
-
                     }).catch((errCreate) => {
                         return res.status(500).send("err insert " + JSON.stringify(errCreate));
                     });
-
-
                 });
-
-
-
-
             });
-
         });
 
-
+        /*********************************************** */
+        /**************DOWNLOAD************************ */
+        /********************************************* */
         this.app.get("/download/:idFile",
             (req, res) => {
                 const idFile = req.params.idFile;
                 this.lbApp.getRepository(SourcesBddRepository).then((repoMeta: SourcesBddRepository) => {
                     repoMeta.findById(idFile).then((readFile) => {
                         const file = path.resolve(__dirname, "..", `download/${readFile.pathFile}`);
-
                         const mimetype = readFile.typemime;
-
                         if (req.query.attachment) {
                             res.setHeader('Content-disposition', `attachment; filename=${readFile.fileName}`);
                         }
