@@ -24,6 +24,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { PolitiquecfComponent } from './politiquecf/politiquecf.component';
+import { ApplicationAndroidComponent } from './application-android/application-android.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PolitiquecfComponent } from './politiquecf/politiquecf.component';
     ConnectionComponent,
     UserPageComponent,
     UpdateUserComponent,
-    PolitiquecfComponent
+    PolitiquecfComponent,
+    ApplicationAndroidComponent
   ],
   imports: [
     BrowserModule,

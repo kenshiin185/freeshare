@@ -11,6 +11,7 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { FooterComponent } from './footer/footer.component';
 import { PolitiquecfComponent } from './politiquecf/politiquecf.component';
+import { ApplicationAndroidComponent } from './application-android/application-android.component';
 
 
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'user-page', component: UserPageComponent },
   { path: 'update', component: UpdateUserComponent },
   {path: 'politiquecf', component: PolitiquecfComponent},
-  { path: 'footer', component: FooterComponent}
+  { path: 'footer', component: FooterComponent},
+  {path: 'application-android', component: ApplicationAndroidComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,121 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: auto;
+}
+h1{
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    background: linear-gradient(to right, gold, rgb(56, 54, 54));
+	-webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 400px;
+    margin: auto;
+    margin-bottom: 10%;
+    margin-top: 3%;
+    transition: .5s;
+    animation: slideDown 0.7s;
+}
+
+@keyframes slideDown{
+    0%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+h5{
+    font-style: italic;
+    font-weight: bolder;
+}
+.media{
+    margin-bottom: 4%;
+    border: 0.5px solid grey;
+    width: 600px;
+    height: 95px;
+    display: flex;
+    border-radius: 4px;
+    box-shadow: 4px 4px 7px grey;
+   
+}
+.containApk{
+    width:80%;
+    display:flex;
+    flex-direction: column;
+}
+button{
+    display: flex;
+    flex-direction: row;
+    background-color:none;
+    color: black;
+    align-items: center;
+    justify-content: space-around;
+    width: fit-content;
+    height:40px;  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition:0.5s;
+    background-size: 220%;
+    background-image: linear-gradient(
+        to right,
+        rgb(255, 196, 0),
+        #fcfbbe,
+        rgb(255, 196, 0)
+    );
+    border: none;
+    box-shadow: 2px 2px 5px grey;
+}
+button:hover{
+   background-position:right;
+    
+    
+}
+
+a{
+    text-decoration-line:none;
+    color:black;
+}
+img{
+    height: 94px;
+}
+button{
+float: right;
+margin-right: 2%;
+ 
+}
+
+@media screen and (min-width: 200px) and (max-width: 690px) {
+    *{
+        margin: auto;
+    }
+    .media{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+    height: 150px;
+    margin-bottom: 3%;
+    position: relative;
+    text-align: center;
+    align-items: center;
+    }
+    img{
+        display: none;
+    }
+    button{
+        
+        position: absolute;;
+        bottom: 4%;
+        left: 90px;
+    }
+    .containApk{
+        width: auto;
+    }
+    h1{
+        width: auto;
+        margin: auto;
+        text-align: center;
+        font-size: 22px;
+    }
+    }
