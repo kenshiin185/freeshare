@@ -55,6 +55,7 @@ export class AccueilComponent implements OnInit {
 
   public display() {
     let divflag = document.getElementById('flag').style.display = 'none';
+   
   }
 }
 

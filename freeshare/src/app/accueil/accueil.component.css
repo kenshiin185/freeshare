@@ -139,6 +139,7 @@ p{
     width: 95%;
     margin: auto;
     background-color: rgba(247, 244, 244, 0.911);
+    z-index: 99;
 }
 
 

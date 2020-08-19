@@ -5,8 +5,10 @@
     width: 100%;
     background-color: black;
     color: gold;
-    height: 100%;
+    height: 500px;
     font-family: cursive;
+    margin: auto;
+    margin-bottom: 0;
 }
 h3{
   font-family: cursive;
@@ -50,7 +52,7 @@ img{
 
 }
 .bot{
-    margin-top: 4%;
+    margin-top:2%;
 }
 h5{
     text-decoration: underline;

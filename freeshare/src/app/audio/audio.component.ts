@@ -12,14 +12,17 @@ export class AudioComponent implements OnInit {
 
   constructor(private srvSources: SourcesService,public currentService: FrmCurrentServiceService) { }
   tabSources: Sources[] = [];
+  
   ngOnInit() {
 
+    
     this.srvSources.reqDataByType("audio/mp3").subscribe((data) => {
       this.tabSources = data;
       console.log(data);
     }, (error) => {
       console.log(error);
     });
+   
 
   }
   buildUrlImg(buildI: string): string {
