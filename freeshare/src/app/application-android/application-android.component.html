@@ -6,7 +6,8 @@
     <img src="assets/images/freeicoapk.png" class="mr-3" alt="...">
     <div class="media-body">
       <h5 class="mt-0">{{source.title}}</h5>
-      {{source.description}}
+      {{source.description}}<br/>
+      Publié le: {{source.date|date:'d MMMM yyyy'}}
       <button *ngIf="useraccess()" type="button" class="btn btn-warning">
         <a href="{{buildUrlHref(source._id)}}">Télécharger</a>
       </button>
