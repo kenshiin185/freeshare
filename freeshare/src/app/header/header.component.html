@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <a *ngIf="useraccess()" routerLink="update"><img src="../assets/images/bread.png" width="80" height="80" /></a>
     <div class="navbar-brand warning">Freeshare</div>
+
     <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -37,4 +38,5 @@
             </li>
         </ul>
     </div>
+    <div *ngIf="useraccess()" class="welcome">Bienvenue {{user.pseudo}}</div>
 </nav>

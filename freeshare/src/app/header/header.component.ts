@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FrmCurrentServiceService } from '../frm-current-service.service';
 import { Router } from '@angular/router';
 import { UtilisateurService } from '../utilisateur.service';
-
+import { Utilisateurs } from '../class/Utilisateur';
+import { CommConnectionUtilisateurService } from '../comm-connection-utilisateur.service';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,8 @@ import { UtilisateurService } from '../utilisateur.service';
 
 export class HeaderComponent implements OnInit {
   navbarOpen = false;
+  currentuser: Utilisateurs[]=[];
+  user: Utilisateurs;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
@@ -20,6 +23,12 @@ export class HeaderComponent implements OnInit {
   constructor(public currentService: FrmCurrentServiceService, public router: Router,private srvUtilisateur: UtilisateurService) { }
 
   ngOnInit() {
+    this.srvUtilisateur.reqPseudoById(this.currentService.id).subscribe((data) => {
+      this.user = data;
+      console.log(data);
+    });
+
+   
   }
   public get messgbtn(): string {
     if (this.currentService.isLoged) {

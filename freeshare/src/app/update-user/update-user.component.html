@@ -1,19 +1,55 @@
+<h1>Vos partages</h1>
+<div class="wrapUserShareData">
+  <div *ngFor="let source of userShareData" class="card ">
+    <img src="{{buildUrlImg(source.pathFile)}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{source.title}}</h3>
+      <h5 class="card-date">Publié le: {{source.date|date:'d MMMM yyyy'}}</h5>
+    </div>
+  </div>
+  <div *ngFor="let source of userShareDataAudio" class="card ">
+    <img src="assets/images/freeicoaudio.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{source.title}}</h3>
+      <h5 class="card-date">Publié le: {{source.date|date:'d MMMM yyyy'}}</h5>
+    </div>
+  </div>
+
+  <div *ngFor="let source of userShareDataVideo" class="card ">
+    <img src="assets/images/freeicovideo.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{source.title}}</h3>
+      <h5 class="card-date">Publié le: {{source.date|date:'d MMMM yyyy'}}</h5>
+    </div>
+  </div>
+
+  <div *ngFor="let source of userShareDataApk" class="card ">
+    <img src="assets/images/freeicoapk.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h3 class="card-title">{{source.title}}</h3>
+      <h5 class="card-date">Publié le: {{source.date|date:'d MMMM yyyy'}}</h5>
+    </div>
+  </div>
+
+</div>
+
 <h1>Que voulez-vous faire ?</h1>
 <div class="wrap">
-<div class="containformModif">
+
+  <div class="containformModif">
     <form [formGroup]="formModifUser" (ngSubmit)="onValidateFormModif()">
       <h4>Modifier profile</h4>
       <label for="">Pseudo</label><br>
-        <input type="text" name="pseudo"  formControlName="identifiant"><br>
+      <input type="text" name="pseudo" formControlName="identifiant"><br>
       <label for="">E-mail</label><br>
-        <input type="mail" name="mail" formControlName="mail"><br>
+      <input type="mail" name="mail" formControlName="mail"><br>
       <label for="">Mot de passe</label><br>
-        <input type="password" name="password"  formControlName="password"><br>
+      <input type="password" name="password" formControlName="password"><br>
       <button [disabled]="!formModifUser.valid">Modifier</button>
     </form>
-    </div>
-    <div class="sup">
-      <p>Vous nous quittez déjà ?</p>
-      <button type="button" class="btn btn-danger"(click)="supuser()">Supprimer compte</button>
-    </div>
   </div>
+  <div class="sup">
+    <p>Vous nous quittez déjà ?</p>
+    <button type="button" class="btn btn-danger" (click)="supuser()">Supprimer compte</button>
+  </div>
+</div>

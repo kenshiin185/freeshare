@@ -3,3 +3,15 @@
     margin: 0;
     padding: 0;
 }
+
+
+@font-face{
+    font-family: 'alex-brush';
+    src: url('assets/alex-brush/AlexBrush-Regular.ttf')format('ttf');
+    src: url('/alex-brush/AlexBrush-Regular.otf')format('otf');
+    src: url('assets/alex-brush/AlexBrush-Regular.ttf')format('ttf');
+}
+@font-face{
+    font-family: 'dancing-script-regular';
+    src: url('assets/Dancing_Script/static/DancingScript-Regular.ttf');
+}

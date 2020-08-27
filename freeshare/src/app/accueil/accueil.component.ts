@@ -36,6 +36,8 @@ export class AccueilComponent implements OnInit {
     }, (error) => {
       console.log(error);
     });
+
+    
   }
 
 

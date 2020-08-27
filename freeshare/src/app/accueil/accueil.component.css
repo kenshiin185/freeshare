@@ -29,6 +29,7 @@ h1{
     margin: auto;
     transition: .5s;
     animation: slideDown 0.7s;
+   
 }
 
 @keyframes slideDown{
@@ -121,7 +122,8 @@ p{
         width: 80%;
         font-size:22px;
         margin: auto;
-        margin-bottom: 5%;
+       
+        margin-bottom: 10%;
     }
     img{
         width: 100%;
@@ -150,4 +152,3 @@ p{
     width: 100px;
     height: 130px;
 }
-

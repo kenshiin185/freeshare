@@ -8,14 +8,32 @@ import {environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class SourcesService {
+  id: string;
+  private _id: string;
   
   
 
   constructor(private http: HttpClient) { }
 
   reqDataByOwner(owner: string): Observable<Sources[]> {
-    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][owner]=${owner}`)
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][owner][like]=${owner}&filter[where][typemime][like]=image/`)
   }
+
+  reqDataByOwnerAudio(owner:string): Observable<Sources[]> {
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][owner][like]=${owner}&filter[where][typemime][like]=audio/`)
+  }
+  reqDataByOwnerVideo(owner:string): Observable<Sources[]> {
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][owner][like]=${owner}&filter[where][typemime][like]=video/`)
+  }
+  reqDataByOwnerApk(owner:string): Observable<Sources[]> {
+    return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][owner][like]=${owner}&filter[where][typemime][like]=application/`)
+  }
+  reqSupThisData(id:string,sources:Sources): Observable<void> {
+    return this.http.delete<void>(`${environment.retBaseUrl}/api/sources-bdds/${id}`,{
+      headers: new HttpHeaders().delete("content-Type", "application/json")
+    });
+  }
+
   reqDataByType(type: string): Observable<Sources[]> {
     return this.http.get<Sources[]>(`${environment.retBaseUrl}/api/sources-bdds?filter[where][typemime]=${type}`)
   }

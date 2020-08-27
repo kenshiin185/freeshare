@@ -7,6 +7,10 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { UtilisateurService} from '../utilisateur.service'
 import { FrmCurrentServiceService } from '../frm-current-service.service';
 import { Router } from '@angular/router';
+import { SourcesService } from '../sources.service';
+import { environment } from 'src/environments/environment';
+import { Sources } from '../class/Sources';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -25,14 +29,51 @@ export class UpdateUserComponent implements OnInit {
       password: new FormControl("", [Validators.required]),
     }
   );
-  constructor(private comm: CommConnectionUtilisateurService,private srvUtilisateur: UtilisateurService,
+  user: Utilisateurs;
+  tabSources:any;
+  currentService: any;
+  userShareData: Sources[];
+  
+  id: string;
+  userShareDataAudio: Sources[];
+  userShareDataVideo: Sources[];
+  userShareDataApk: Sources[];
+  
+  constructor(private srvSources: SourcesService,private comm: CommConnectionUtilisateurService,private srvUtilisateur: UtilisateurService,
     private currentuser: FrmCurrentServiceService,private router: Router
     ) { }
 
   ngOnInit() {
    
+   this.srvSources.reqDataByOwner(this.currentuser.id).subscribe((data) => {
+     this.userShareData=data;
+     console.log(data);
+    }, (error) => {
+      console.log(error);
+    });
+
+    this.srvSources.reqDataByOwnerAudio(this.currentuser.id).subscribe((data) => {
+      this.userShareDataAudio=data;
+      console.log(data);
+     }, (error) => {
+       console.log(error);
+     });
+
+     this.srvSources.reqDataByOwnerVideo(this.currentuser.id).subscribe((data) => {
+      this.userShareDataVideo=data;
+      console.log(data);
+     }, (error) => {
+       console.log(error);
+     });
+
+     this.srvSources.reqDataByOwnerApk(this.currentuser.id).subscribe((data) => {
+      this.userShareDataApk=data;
+      console.log(data);
+     }, (error) => {
+       console.log(error);
+     });
       
-    
+    /*********************************************************************/
     this.srvUtilisateur.reqDataByUserId(this.currentuser.id).subscribe((data) => {
       
       this.formModifUser.controls['identifiant'].setValue(data.pseudo);
@@ -42,6 +83,9 @@ export class UpdateUserComponent implements OnInit {
       console.log(error);
     });
   }
+
+ 
+
   onValidateFormModif() {
     console.log("validate formulaire");
     console.log(this.formModifUser.value);
@@ -75,4 +119,35 @@ export class UpdateUserComponent implements OnInit {
       }
     )
   }
+
+  /***************************************************************/
+  /*public delData(){
+    let delWrk : Sources = new Sources();
+  
+    this.srvSources.reqSupThisData(this.tabSources.id,delWrk).subscribe(
+      (data) => {
+        alert(data);
+        console.log(data);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }*/
+/*************************************************************** */
+buildUrlImg(buildI: string): string {
+  return `${environment.retBaseUrl}/api/images/${buildI}`;
+}
+
+buildUrlHref(buildH: string): string {
+  return `${environment.retBaseUrl}/download/${buildH}?attachment=true`;
+}
+
+public useraccess():boolean{
+  if (this.currentService.token){
+    return true;
+  } else{
+    return false;
+  }
+}
 }
