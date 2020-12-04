@@ -85,3 +85,12 @@ button:hover{
     
     
 }
+.wSpin {
+    display: flex;
+    justify-content: center;
+}
+.spinner-border {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}

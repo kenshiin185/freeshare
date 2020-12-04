@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-//import { get } from 'http';
-
 
 @Injectable({
   providedIn: 'root'

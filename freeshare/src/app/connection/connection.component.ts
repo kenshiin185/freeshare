@@ -13,6 +13,7 @@ import { invalid } from '@angular/compiler/src/render3/view/util';
   styleUrls: ['./connection.component.css']
 })
 export class ConnectionComponent implements OnInit {
+  loading = false;
   formAuth: FormGroup = new FormGroup(
     {
       identifiant: new FormControl("", [Validators.required]),
@@ -25,6 +26,7 @@ export class ConnectionComponent implements OnInit {
   ngOnInit() {
   }
   onValidateForm() {
+    this.loading = true;
     console.log("validate formulaire");
     console.log(this.formAuth.value);
     let authWrk: AuthUtilisateur = new AuthUtilisateur();
@@ -35,9 +37,11 @@ export class ConnectionComponent implements OnInit {
         console.log(data);
         this.currentUser.token = data.token;
         this.currentUser.id = data.id;
+        this.loading = false;
         this.router.navigate(["/accueil"]);
       },
       (err) => {
+        this.loading = false;
         console.log(err);
         this.currentUser.token = "";
         this.validation = true;

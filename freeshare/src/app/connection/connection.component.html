@@ -1,20 +1,25 @@
-
 <div class="containalert">
-<div *ngIf="validation" class="alert alert-danger" role="alert">
-    Erreur de saisie Pseudo/Mot de passe
-</div>
+    <div *ngIf="validation" class="alert alert-danger" role="alert">
+        Erreur de saisie Pseudo/Mot de passe
+    </div>
 </div>
 <div class="containform">
     <form [formGroup]="formAuth" (ngSubmit)="onValidateForm()">
         <h4>Connecte-toi !</h4>
         <img src="../assets/images/edit.png" alt="">
         <input type="text" name="pseudo" placeholder="Entrez votre pseudo" formControlName="identifiant">
-        <br/>
+        <br />
         <img src="../assets/images/password.png" alt="">
         <input type="password" name="password" placeholder="Entrez votre mot de passe" formControlName="password">
-        <br/>
-        <button  [disabled]="!formAuth.valid" name="sub">Se connecter</button>
-        <br/>
+        <br />
+        <button [disabled]="!formAuth.valid" name="sub">Se connecter</button>
+        <br />
         <a href="" routerLink="/creation-utilisateur">Nouveau ? Créer un compte</a>
     </form>
+</div>
+
+<div class="wSpin">
+    <div class="spinner-border text-warning" role="status" *ngIf="loading">
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

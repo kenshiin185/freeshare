@@ -15,7 +15,7 @@ export class UserPageComponent implements OnInit {
   modalRef: any;
   modalRef2: any;
   router: any;
- 
+
   formModifUser: FormGroup = new FormGroup(
     {
       identifiant: new FormControl("", [Validators.required]),
@@ -23,10 +23,10 @@ export class UserPageComponent implements OnInit {
       password: new FormControl("", [Validators.required]),
     }
   );
- 
 
-  constructor(private comm: CommConnectionUtilisateurService,private srvSources: SourcesService,
-    private modalService: BsModalService ) { }
+
+  constructor(private comm: CommConnectionUtilisateurService, private srvSources: SourcesService,
+    private modalService: BsModalService) { }
   tabSources: Sources[] = [];
   ngOnInit() {
     this.formModifUser.controls['identifiant'].setValue("string")
@@ -54,21 +54,21 @@ export class UserPageComponent implements OnInit {
       }
     )
   }
-// gestion modal
-openModal(template: TemplateRef<any>) {
-  this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
-}
-openModal2(template: TemplateRef<any>) {
-  this.modalRef2 = this.modalService.show(template, { class: 'second' });
-}
-closeFirstModal() {
-  if (!this.modalRef) {
-    return;
+  // gestion modal
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
   }
+  openModal2(template: TemplateRef<any>) {
+    this.modalRef2 = this.modalService.show(template, { class: 'second' });
+  }
+  closeFirstModal() {
+    if (!this.modalRef) {
+      return;
+    }
 
-  this.modalRef.hide();
-  this.modalRef = null;
-}
+    this.modalRef.hide();
+    this.modalRef = null;
+  }
 
 }
 

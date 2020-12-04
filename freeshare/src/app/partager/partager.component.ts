@@ -13,6 +13,7 @@ import { environment} from 'src/environments/environment';
   styleUrls: ['./partager.component.css']
 })
 export class PartagerComponent implements OnInit {
+  loading = false;
   formShare: FormGroup = new FormGroup(
     {
       titre: new FormControl("", [Validators.required]),
@@ -28,6 +29,7 @@ export class PartagerComponent implements OnInit {
   ngOnInit() {
   }
   onValidateFormShare() {
+    this.loading = true;
     console.log("validate formulaire");
     console.log(this.formShare.value);
 
@@ -40,9 +42,11 @@ export class PartagerComponent implements OnInit {
     this.comm.reqUpdateSrc(shareWrk).subscribe(
       () => {
         console.log("mise à jour réussi");
+        this.loading = false;
         this.route.navigate([""]);
       },
       (err) => {
+        this.loading = false;
         console.log(err);
       }
     )
